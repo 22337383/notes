@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="time"></div>
+	<script type="text/javascript">
+	//定时器函数
+		setInterval(times, 1000);
+		var time = document.getElementById("time");
+		var num = 1;
+		function times(){
+			num++;
+			// 插入内容
+			time.innerHTML = num;
+		}
+	</script>
+</body>
+</html>

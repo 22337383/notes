@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#toTop{
+			/* 相对可视窗口定位 */
+			position: fixed;
+			bottom: 100px;
+			right: 20px;
+			display: none;
+		}
+		.content{
+			width: 1000px;
+			/* margin: 20px; */
+		}
+	</style>
+</head>
+<body>
+	<div class="pic" id="toTop">
+		<img src="Top.jpg">
+	</div>
+	<div class="content">
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+		<p>滑动侧边栏出现小火箭，点击小火箭会顶部</p>
+	</div>
+
+	<script type="text/javascript" src="scroll.js"></script>
+	<script type="text/javascript">
+			
+
+		window.onload = function(){
+			function show(obj){obj.style.display = "block";}
+			function hide(obj){obj.style.display = "none"}
+			var toTop = document.getElementById("toTop");
+			var leader = 0,target = 0,timer = null;
+			window.onscroll = function(){
+			// 判断何时显示小火箭
+			scroll().top > 0 ? show(toTop) : hide(toTop); 
+			leader = scroll().top;
+			}
+			// 返回顶部的缓动动画
+			toTop.onclick = function(){
+				timer = setInterval(function(){
+				leader = leader + (target - leader) / 10;
+				// 文档移动的距离就是scroll().top被卷盖的距离
+				window.scrollTo(0,leader);
+				if (leader == 0) {
+					clearInterval(timer);
+				}
+			},20)
+		}
+	}
+	</script>
+</body>
+</html>

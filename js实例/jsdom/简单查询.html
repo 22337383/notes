@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt" name="" value="请输入...">
+	<input type="button" id="btn" name="" value="查询">
+	<script type="text/javascript">
+	window.onload = function(){
+		function $(id){
+			return document.getElementById(id)
+		}
+		// 错误：btn忘记加引号，function忘记加()
+		$("btn").onclick = function(){
+		if($("txt").value == "刘德华"){
+			alert("恭喜")
+		}else{
+			alert("抱歉")
+		}
+		}
+
+	}
+	</script>
+</body>
+</html>

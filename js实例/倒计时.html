@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#demo{
+			color: green;
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/javascript">
+		//思路：获得将来与现在的毫秒时间差，然后转换成天，时，分，秒
+		var demo = document.getElementById("demo");
+		var endTime = new Date("2016/12/31 23:59:59");
+
+		//定时器开始
+		setInterval(startTime,1000);
+		function startTime(){
+			var startTime = new Date();
+			//获得毫秒时间差换成秒，并转成整数
+			var seconds = parseInt((endTime.getTime()-startTime.getTime())/1000);
+			// 把时间差转为天，时，分，秒
+			var d = parseInt(seconds/3600/24);
+			var h = parseInt(seconds/3600%24);
+			var m = parseInt(seconds/60%60);
+			var s = parseInt(seconds%60);
+
+			//三元运算符判断
+			d < 10? d = "0"+d : d;
+			h < 10? h = "0"+h : h;
+			m < 10? m = "0"+m : m;
+			s < 10? s = "0"+s : s;
+
+			//输出倒计时
+			demo.innerHTML = "距离2017年还有："+d+"天"+h+"时"+m+"分"+s+"秒";
+		}
+		//错误总结：忘记把毫秒换成秒，把局部变量当做全局变量调用了		
+	</script>
+</body>
+</html>

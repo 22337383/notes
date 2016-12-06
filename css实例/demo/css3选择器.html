@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3选择器</title>
+	<style>	
+/*属性值中只有div1的匹配34*/
+	p[class=div1]{
+        background: yellow;
+	}
+
+/*属性值包含div1即可匹配到 空格隔开 1234 多值匹配*/
+	/*p[class~=div1]{
+		background: green;
+	}*/
+
+/*属性值包含有div1的和以div1开头 123456 多值匹配*/
+	/*p[class^=div1]{
+		background: blue;
+	}*/
+
+/*所有包含div1的属性值123456789 多值匹配*/
+    /*p[class*=div1]{
+		background: pink;
+	}*/
+
+/*属性值为div1和以div1结尾的属性值3478*/
+   /* p[class$=div1]{
+		background:#f3f3f3;
+	}*/
+
+/*单独的属性值和以“-”隔开的属性值3456*/
+     /* p[class|=div1]{
+		background: yellow;
+	}*/
+
+/*p的第一个兄弟span*/
+     /*p+span{
+     	color: green;
+     }*/
+	</style>
+</head>
+<body>
+	<p class="div1 div2">抬头望明月1</p>
+	<p class="div1 div3">抬头望明月2</p>
+
+	<p class="div1">抬头望明月3</p>
+	<p class="div1">抬头望明月4</p>
+
+	<p class="div1-one">抬头望明月5</p>
+	<p class="div1-two">抬头望明月6</p>
+    
+	<p class="one-div1">低头是故乡7</p>
+	<p class="two-div1">抬头望明月8</p>
+	<p class="div1_one">低头是故乡9</p>
+
+	<p>段落</p>
+	<span>段落一</span>
+    <span>段落二</span>
+    <span>段落一</span>
+    <span>段落二</span>
+</body>
+</html>

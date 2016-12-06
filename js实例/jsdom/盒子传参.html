@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 50px;
+			height: 50px;
+			background: green;
+			display: none;
+		}
+	</style>
+</head>
+<button onclick="box('demo1')">显示盒子1</button>
+<button onclick="box('demo2')">显示盒子2</button>
+<button onclick="box('demo3')">显示盒子3</button>
+<button onclick="box('demo4')">显示盒子4</button>
+<button onclick="box('demo5')">显示盒子5</button>
+<div id="demo1"></div>
+<div id="demo2"></div>
+<div id="demo3"></div>
+<div id="demo4"></div>
+<div id="demo5"></div>
+<!-- div#demo$*4/ -->
+
+<body>
+	<script type="text/javascript">
+		function box(e){
+			var a = document.getElementById(e);
+			a.style.display = "block";
+		}
+	</script>
+</body>
+</html>

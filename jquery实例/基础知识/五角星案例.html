@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.star{
+			font-size: 30px;
+			color: yellow;
+		}
+		li{
+			float: left;
+			
+		}
+	</style>
+	<script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+	<ul class="star">
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+
+	<script type="text/javascript">
+		$(function(){
+			var star_none = "☆",star_sel = "★";
+			$(".star").on("click", "li", function(){
+				// prevAll 指前面的所有兄弟 nextAll 后面的所有兄弟 end()方法结束前面链子
+				$(this).text(star_sel)
+				.prevAll().text(star_sel).end()
+				.nextAll().text(star_none);
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		canvas.width = 600;
+		canvas.height = 600;
+		canvas.style.border = "1px solid green";
+		// 矩形 左上角起始坐标 width height
+		/*ctx.rect(100,100,50,80);
+		ctx.strokeRect(200,200,50,80);
+		ctx.clearRect(120,80,50,80);*/
+		// 圆形 圆心坐标 半径 弧度起点 弧度终点 默认false顺时针，true顺时针
+		ctx.moveTo(300,300);
+		ctx.arc(300,300,100,270*Math.PI / 180,360*Math.PI / 180);
+		ctx.closePath();
+		ctx.stroke();
+		
+	</script>
+</body>
+</html>

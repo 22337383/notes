@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ++a是先计算后执行，a++是先执行后运算 -->
+	<script type="text/javascript">
+	//结果是11
+		/*var a = 10,b = 20,c = 30;
+		++a;
+		alert(a);*/
+	// 结果是11
+		/*var a = 10,b = 20,c = 30;
+		a++;
+		alert(a);*/
+
+	//结果是12
+		/*var a = 10,b = 20,c = 30;
+		++a;
+		a++;
+		alert(a);*/
+
+	//结果是12
+		/*var a = 10,b = 20,c = 30;
+		a++;
+		++a;
+		alert(a);*/
+		//结果是77，e=13+21+30+12+13
+		var a = 10,b = 20,c = 30;
+		++a;
+		a++;
+		e = ++a +(++b) +(c++) +a++;
+		alert(e);
+	</script>
+</body>
+</html>

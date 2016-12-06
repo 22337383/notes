@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" name="love">足球
+	<input type="checkbox" name="love">足球
+	<input type="checkbox" name="love">足球
+	<input type="checkbox" name="love">足球
+	<input type="checkbox" name="love">足球
+	<button>全选</button>
+	<button>取消全选</button>
+	<button>反选</button>
+	<!-- <input type="button" name="" value="全选">
+	<input type="button" name="" value="取消全选">
+	<input type="button" name="" value="反选"> -->
+	<script type="text/javascript">
+		var inp = document.getElementsByTagName("input");
+		var btn = document.getElementsByTagName("button");
+		//错误：event拼写成了evnet
+		function flag(event){
+			for (var i = 0; i < inp.length; i++) {
+				inp[i].checked = event;
+			}
+		}
+		btn[0].onclick = function(){
+			flag(true);
+		}
+		btn[1].onclick = function(){
+			flag(false);
+		}
+		btn[2].onclick = function(){
+			for (var i = 0; i < inp.length; i++) {
+				//三元运算符，条件?结果：否者
+				inp[i].checked ? inp[i].checked=false:inp[i].checked=true;
+			}
+		}
+	</script> 
+</body>
+</html>

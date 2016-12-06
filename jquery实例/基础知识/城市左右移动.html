@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<style type="text/css">
+		select{
+			width: 200px;
+			height: 200px;
+			background: green;
+		}
+		#btn_sel{
+			display: inline-block;
+			width: 30px;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<select id="left_sel" multiple="multiple">
+		<option>北京</option>
+		<option>上海</option>
+		<option>广州</option>
+		<option>深圳</option>
+	</select>
+	<div id="btn_sel">
+		<button>&gt;&gt;</button>
+		<button>&lt;&lt;</button>
+		<button>&gt;</button>
+		<button>&lt;</button>
+	</div>
+	<select id="right_sel" multiple="multiple">
+		
+	</select>
+	<script type="text/javascript">
+	$(function(){
+		$("#btn_sel button").eq(0).on("click",function(){
+			$("#left_sel option").appendTo($("#right_sel"))
+		})
+		$("#btn_sel button").eq(1).on("click",function(){
+			$("#left_sel").append($("#right_sel option"))
+		})
+
+		$("#btn_sel button").eq(2).on("click",function(){
+			$("#left_sel option:selected").appendTo($("#right_sel"))
+		})
+		$("#btn_sel button").eq(3).on("click",function(){
+			$("#left_sel").append($("#right_sel option"))
+		})
+	})
+	</script>
+</body>
+</html>

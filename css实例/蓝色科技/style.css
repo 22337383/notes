@@ -1,0 +1,142 @@
+*{
+     	padding: 0px;
+     	margin: 0 auto;
+     }
+     .active{
+     	width: 100px;
+     	height: 60px;
+     	line-height: 60px;
+     	background: #00738A;
+     	border-top-left-radius: 10px;
+     	border-top-right-radius: 10px;
+     }
+     header{
+     	width: 1200px;
+     	height: 370px;
+     	background: #1C2022;
+     }
+     .logo{
+     	padding: 20px 150px;
+     }
+     nav a{
+     	text-decoration: none;
+     	color: #fff;
+     	display: block;
+     	width: 100px;
+     	height: 60px;
+     	border-top-left-radius: 10px;
+     	border-top-right-radius: 10px;
+     }
+     nav a:hover{
+     	width: 100px;
+     	height: 60px;
+     	line-height: 60px;
+     	background: #00738A;
+     	border-top-left-radius: 10px;
+     	border-top-right-radius: 10px;
+     }
+     nav ul{
+     	list-style: none;
+     	width: 670px;
+     	height: 60px;
+     	margin-left: 150px;
+     	text-align: center;
+
+     }
+     nav ul li{
+     	width: 100px;
+     	height: 60px;
+     	line-height: 60px;
+     	background: #2A2F30;
+     	margin-right:5px;
+     	border-top-left-radius: 10px;
+     	border-top-right-radius: 10px;
+     	float: left;
+     }
+     .clear {
+     	clear: both;
+     }
+     .content{
+     	width: 950px;
+     	   	
+     }
+     .left {
+     	width: 650px;
+     	margin-top: 100px;
+     	line-height: 1.5em;
+     	background: url(images/cont-tail.png);  
+     	float: left;
+     }
+     .right {
+     	float: left;
+     	width: 275px;
+     	height: 700px;
+     	padding:20px 10px ;
+     	margin-top: 85px;
+     	margin-right: 0px;
+     	
+     	line-height: 1.5em;
+     	
+     	background: #f3f3f3;
+     }
+     h3{
+     	color: blue;
+     	padding-top: 20px;
+     }
+     .left p ,h1{
+     	padding: 10px 25px;
+     }
+     .bg{
+     	padding-left: 150px;
+     	position: relative;
+     }
+     input {
+     	width: 200px;
+     	height: 52px;
+     	line-height: 52px;
+     	border: none;
+     	background: #00BCD9;
+     	opacity: 0.7;
+     	border-top-left-radius: 10px;
+     	border-bottom-left-radius: 10px;
+     	line-height: 45px;
+     	position: absolute;
+     	font-size: 16px;
+     	top: 150px;
+     	left: 250px;
+     	
+     }
+     button{
+     	border: none;
+     	position: absolute;
+     	top: 150px;
+     	left: 450px;
+     	width: 109px;
+     	height: 52px;
+     	background: url(images/button.gif);
+     }
+     hgroup{
+     	position: absolute;
+     	top: 50px;
+     	left: 250px;
+     	color: #fff;
+     }
+     footer {
+     	width: 1200px;
+     	height: 50px;
+     	background: #202528;
+     	color: #fff;
+     }
+     footer{ 
+     	text-align: center;
+     	padding-top: 40px;
+     }
+
+     .one img{
+     	float: left;
+     	margin-left: 20px;
+     }
+     // .one h4,.one p{
+     //      margin-left: 20px;
+     //      float: left;
+     // }

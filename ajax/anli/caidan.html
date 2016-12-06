@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<!-- http://apis.juhe.cn/cook/query?key=4b1f3e211db60879e6e1b4365594ee31&rn=3&pn=0&dtype=jsonp&callback=handle&menu=%E8%A5%BF%E7%BA%A2%E6%9F%BF -->
+	<input type="text" id="txtSearch" name="">
+	<input type="button" id="btnSearch" name="" value="搜索">
+	<div id="menu">
+		<!-- <div class="all">
+			<p class="title">标题</p>
+			<p class="tags">标签</p>
+			<p class="imtro">介绍</p>
+			
+			<img src="">
+			<p class="ingredients">主料</p>
+			<p class="burden">辅料</p>
+			<div class="steps">
+				<em class="xh">1</em>
+				<div class="step">
+					<img src="" alt="">
+					<p></p>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#btnSearch").click(function() {
+				var txt = $("#txtSearch").val();
+				txt = encodeURIComponent(txt);
+				console.log(txt);
+				var menu = $("#menu");
+				menu.text("正在加载...");
+				$.ajax({
+					type:"get",
+					url:"http://apis.juhe.cn/cook/query?dtype=jsonp&pn=0&rn=3&albums=1&=&key=4b1f3e211db60879e6e1b4365594ee31&menu=" + txt,
+					dataType:"jsonp",
+					success:function(data){
+						menu.text("");
+						if (data.resultcode != 200) {
+							menu.text("没有查到相关内容");
+							return false;
+						}
+						
+						for (var i = 0; i < data.result.data.length; i++) {
+							var myData = data.result.data[i];
+							var all = $('<div class="all"></div>');
+							var title = $('<p class="title">'+ myData.title +'</p>');
+							all.append(title);
+
+							var tags = $('<p class="tags">'+ myData.tags +'</p>');
+							all.append(tags);
+
+							var imtro = $('<p class="imtro">'+ myData.imtro +'</p>');
+							all.append(imtro);
+
+							for (var j = 0; j < myData.albums.length; j++) {
+								var albums = myData.albums[j];
+								var img = $('<img src=" '+albums+' ">');
+								all.append(img);
+							}
+							
+							// 主料
+							var ingredients = $('<p class="ingredients">'+ myData.ingredients +'</p>');
+							all.append(ingredients);
+							// 辅料
+							var burden = $('<p class="burden">'+ myData.burden +'</p>');
+							all.append(burden);
+
+							// $.each(myData.steps,function(i,e){
+							// 	var steps = myData.steps[i];
+							// 	var pic = $('<img src=" '+steps.img+' ">');
+							// 	ingredients.append(pic);
+
+							// 	var step = $('<p class="step">'+ steps.step +'</p>');
+							// 	pic.append(step);
+							// })
+
+							var mysteps = $('<div class="steps"></div>');
+							all.append(mysteps);
+							for (var k = 0; k < myData.steps.length; k++) {
+								var steps = myData.steps[k];
+
+
+								var stepImg = $('<img src=" '+steps.img+' " alt="">');
+								mysteps.append(stepImg);
+
+								var stepCon = $('<p>'+steps.step+'</p>');
+								mysteps.append(stepCon);
+
+
+							}
+							menu.append(all);
+						}
+						
+					},
+					error:function(){
+						menu.text('');
+					}
+
+				})
+				$("<hr/>")
+			});
+		})
+	</script>
+</body>
+</html>

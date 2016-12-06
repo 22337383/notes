@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="cav""></canvas>
+	<script>
+       // 获得标签对象
+       var oA=document.getElementById('cav');
+       oA.width=500;
+       oA.height=500;
+       oA.style.background="gray";
+       // 获取画布环境
+       var ctx = oA.getContext("2d");
+       ctx.strokeStyle="green";
+       ctx.fillStyle="yellow";
+       // 开始新的路径
+       ctx.beginPath();
+       // 路径起始点
+       ctx.moveTo(100,100);
+       ctx.lineTo(200,100); 
+       ctx.lineTo(200,200); 
+       // 路径关闭
+       ctx.closePath();
+       //开始描边
+       ctx.stroke();
+       ctx.fill();
+       
+       // 正方形
+       ctx.beginPath();
+       ctx.moveTo(300,100);
+       ctx.lineTo(400,100); 
+       ctx.lineTo(400,200);
+       ctx.lineTo(300,200); 
+       ctx.closePath();
+       ctx.stroke();
+        
+        // 橡皮擦
+       ctx.beginPath();
+       ctx.rect(100,250,50,100);      
+       ctx.closePath();
+       ctx.fill();
+       ctx.clearRect(100,200,30,100);
+
+       // 短代码
+       // ctx.beginPath();
+       // ctx.strokeRect(150,250,50,100);
+       // ctx.fillRect(150,250,50,100);
+       // ctx.closePath();
+   
+       // 圆形
+       ctx.beginPath();
+       ctx.moveTo(300,300);
+       ctx.arc(300,300,50,0,0.5*Math.PI,true);
+       ctx.closePath();
+       ctx.stroke();
+       ctx.fill();
+	</script>
+</body>
+</html>

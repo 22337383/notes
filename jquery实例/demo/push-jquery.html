@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>push方法</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<form>
+	<span>爱好：</span>
+	<input type="checkbox" name="check" value="">篮球
+	<input type="checkbox" name="check" value="">足球
+	<input type="checkbox" name="check" value="">跑步
+	<input type="checkbox" name="check" value="">音乐
+	<button id="choose" type="button">显示</button>
+	</form>
+	<script type="text/javascript">
+	$("#choose").click(function(){
+		var length = $("input[name=check]:checked").length;
+		alert("选中了："+length);
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">my name is yesyes!</div>
+	<div id="div2">hello world</div>
+	<button id="btn1">concat()函数</button><span></span><br>
+	<button id="btn2">slice(3)</button><span></span><br>
+	<button id="btn3">slice(3,7)</button><span></span><br>
+	<button id="btn4">slice(-6)</button><span></span><br>
+	<button id="btn5">slice(-6,-1)</button><span></span><br>
+
+	<button id="btn6">substr(3)</button><span></span><br>
+	<button id="btn7">substr(3,7)</button><span></span><br>
+	<button id="btn8">substr(-6)</button><span></span><br>
+	<button id="btn9">substr(-6,5)</button><span></span><br>
+	<button id="btn10">substr(-1)兼容</button><span></span><br>
+	<script type="text/javascript">
+	var div1 = document.getElementById("div1").innerHTML;
+	var div2 = document.getElementById("div2").innerHTML;
+		demo("btn1",div1.concat(div2));
+		demo("btn2",div1.slice(3));
+		demo("btn3",div1.slice(3,7));
+		demo("btn4",div1.slice(-6));
+		demo("btn5",div1.slice(-6,-1));//从倒数第六个截取到倒数的一个
+
+		demo("btn6",div1.substr(3));
+		demo("btn7",div1.substr(3,7));
+		demo("btn8",div1.substr(-6));
+		demo("btn9",div1.substr(-6,5));//从倒数第六个开始截取，截取5个字符
+		demo("btn10",div1.substr(div1.length-1,1));
+		function demo(id,txt){
+			var btn = document.getElementById(id);
+			btn.onclick = function(){
+				this.nextSibling.innerHTML = txt;//向span插入内容
+			}
+		}
+	</script>
+</body>
+</html>

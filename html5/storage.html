@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea id="txt_value"></textarea>
+	<button id="set">set</button>
+	<button id="get">get</button>
+	<script type="text/javascript">
+		
+		var btnSet = document.querySelector('#set');
+		var btnGet = document.querySelector('#get');
+		var txtValue = document.querySelector('#txt_value');
+
+		/*btnSet.addEventListener('click', function(){
+			localStorage['key1'] = txtValue.value;
+		})
+		btnGet.addEventListener('click', function(){
+			txtValue.value = localStorage['key1'];
+		})*/
+		
+		/*btnSet.addEventListener('click', function(){
+			localStorage.setItem('key1',txtValue.value);
+		})
+		btnGet.addEventListener('click', function(){
+			txtValue.value = localStorage.getItem('key1');
+			
+		})*/
+
+		/*btnSet.addEventListener('click', function(){
+			sessionStorage.setItem('key1',txtValue.value);
+		})
+		btnGet.addEventListener('click', function(){
+			txtValue.value = sessionStorage.getItem('key1');
+			
+		})*/
+		btnSet.addEventListener('click', function(){
+			sessionStorage['key1'] = txtValue.value;
+		})
+		btnGet.addEventListener('click', function(){
+			txtValue.value = sessionStorage['key1'];
+		})
+	</script>
+</body>
+</html>

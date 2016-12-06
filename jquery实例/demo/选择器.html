@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+	<style type="text/css">
+	#table,td{
+		border: 1px solid green;
+		border-collapse: collapse;
+	}
+	td{
+		padding:10px;
+	}
+	</style>
+</head>
+<body>
+	<table id="table">
+	<tbody>
+	<tr>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+	</tr>
+
+	<tr>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+	</tr>
+
+	<tr>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+	</tr>
+	<tr>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+	</tr>
+	<tr>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+		<td>大家好啊</td>
+	</tr>
+	</tbody>
+	</table>
+
+	<script type="text/javascript">
+	var a=document.getElementById("table");
+	var b=a.getElementsByTagName("tbody")[0];
+	var c=b.getElementsByTagName("tr");
+	for (var i = 0; i < c.length; i++) {
+		if(i%2==0){
+			c[i].style.background="#f3f3f3";
+		}
+	}
+	</script>
+</body>
+</html>

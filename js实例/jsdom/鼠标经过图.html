@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+			margin: 0;
+	}
+		#box{
+			width: 360px;
+			height: 70px;
+			padding-top: 360px;
+			margin: 200px auto;
+			/* 清除浮动 */
+			overflow: hidden;
+			border:  1px solid #ccc;
+			background: url('images/01big.jpg') no-repeat;
+
+		}
+		#box ul{			
+			overflow: hidden;
+			border-top: 1px solid #ccc;
+			list-style: none;
+		}
+		#box li{
+			float: left;			
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+		var box = document.getElementById("box");
+		function pic(list,bg){
+			var mark = document.getElementById(list);
+			//错误：onmouever	
+			mark.onmouseover=function(){
+				box.style.backgroundImage = bg;
+			}
+		}
+
+		     pic("pic1","url(images/01big.jpg)");  // 调用函数
+             pic("pic2","url(images/02big.jpg)");  // 调用函数
+             pic("pic3","url(images/03big.jpg)");  // 调用函数
+             pic("pic4","url(images/04big.jpg)");  // 调用函数
+             pic("pic5","url(images/05big.jpg)");  // 调用函数
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+        <li id="pic1">
+        <img src="images/01.jpg" alt=""/></li>
+        <li id="pic2">
+        <img src="images/02.jpg" alt=""/></li>
+        <li id="pic3">
+        <img src="images/03.jpg" alt=""/></li>
+        <li id="pic4">
+        <img src="images/04.jpg" alt=""/></li>
+        <li id="pic5">
+        <img src="images/05.jpg" alt=""/></li>
+    </ul>
+	</div>
+</body>
+</html>

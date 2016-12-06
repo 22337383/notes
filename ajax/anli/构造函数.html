@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 构造函数
+		function jiqi(shuiguo){
+			this.shuiguo = shuiguo;
+			this.guozi = function(){
+				console.log(this.shuiguo + "果汁");
+			}
+		}
+
+		jiqi.jiage = 299;
+		console.log(jiqi.jiage);
+		jiqi.open = function(){
+			console.log("打开机器")
+		}
+		jiqi.open();
+
+		
+	// 实例化对象
+		var apple = new jiqi("苹果");
+		// 调用
+		apple.guozi();
+		var orange = new jiqi("橘子");
+		orange.guozi();
+	</script>
+</body>
+</html>

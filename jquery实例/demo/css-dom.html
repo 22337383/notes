@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-dom</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	p{
+		padding:300px;
+	}
+	</style>
+</head>
+<body>
+<p>这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落</p>
+<p>这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落这是一个段落</p>
+	<script type="text/javascript">
+	$("p").css({fontSize:"20px",color:"red"});
+	//获取距离左边的偏移量
+	// var $aa=$("p").offset().left;
+
+	//距离父元素定位的距离
+	// var $aa=$("p").position().left;
+	var $aa=$("p").scrollTop(200);
+
+	alert($aa);
+	</script>
+</body>
+</html>

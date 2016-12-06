@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.pic{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			perspective: 700px;
+		}
+		ul{
+			list-style: none;
+			width: 100%;		
+			height: 100%;
+			position: relative;
+			transition: all 1s;
+			transform-style: preserve-3d;
+			transform: scaleX(2.5) scaleY(1.5) rotateX(0deg);
+		}
+		ul li{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		ul li:nth-child(1){		
+			background: url('images/1.jpg');
+			transform: rotateX(0deg) translateZ(100px);
+		}
+		ul li:nth-child(2){
+			background: url('images/2.jpg');
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		ul li:nth-child(3){
+			background: url('images/3.jpg');
+			transform: rotateX(-180deg) translateZ(100px);
+		}
+		ul li:nth-child(4){
+			background: url('images/4.jpg');
+			transform: rotateX(-270deg) translateZ(100px);
+		}
+		
+		/* ul:hover{
+			transform: rotateX(360deg);
+		} */
+
+		.dir span{
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			font-size: 50px;
+			color: white;
+			/* text-align: center; */
+			position: absolute;
+			top: 50%;
+			margin-top: -25px;
+			cursor: pointer;
+
+		}
+		.dir span.left{
+			left: -100px;
+		}
+		.dir span.right{
+			right: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="pic">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<div class="dir">
+		<span class="left"> < </span>
+		<span class="right"> > </span>
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+			var num = 0;
+			$(".left").click(function(){
+				num--;
+				$(".pic ul").css("transform","scaleX(2.5) scaleY(1.5) rotateX("+num * 90+"deg)")
+			})
+			$(".right").click(function(){
+				num++;
+				$(".pic ul").css("transform","scaleX(2.5) scaleY(1.5) rotateX("+num * 90+"deg)")
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div class="box"></div>
+	<div></div>
+	<div></div>
+	<div class="box"></div>
+	<div class="box demo"></div>
+	<div class="one demo box"></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+	<script type="text/javascript">
+	getClass("box");
+	console.log(getClass("box").length);
+	function getClass(classname){
+		//浏览器如果支持，直接返回
+	if (document.getElementsByClassName){
+			return document.getElementsByClassName(classname);
+		}
+		// 浏览器不支持就遍历所有tag获取
+		var arr = [];
+		//遍历所有的元素节点
+		var allTags = document.getElementsByTagName("*");
+		for (var i = 0; i < allTags.length; i++) {
+			//把每一个元素的class名进行分割，即把字符串转成数组
+			var zhuanhuan = allTags[i].className.split(" ");
+			// 对数组进行遍历
+			for (var j = 0; j < zhuanhuan.length; j++) {
+				//如果数组中包含需要的类名
+				if(zhuanhuan[j].className == classname){
+				// 满足条件的标签存入数组
+				arr.push(allTags[i]);
+				}
+			}
+		}
+		return arr;
+	}
+	</script>
+</body>
+</html>

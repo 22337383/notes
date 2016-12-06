@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获得焦点和失去焦点</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<input id="text" type="text" name="" value="请输入名户名">
+	<input type="password" name="" value="请输入密码">
+	<script type="text/javascript">
+		$(":text").focus(function(){
+			var $text = $(this).val();
+			//defautlValue是dom的方法
+			if($text == this.defaultValue){
+				$(this).val("");
+			}
+		})
+		//dom方法赋值dom方法，不能赋值jquery方法
+		$(":text").blur(function() {
+			var txt = this.value;
+			if($.trim(txt) == ""){
+			this.value=this.defaultValue;
+			}
+		})
+		
+		$(":password").focus(function(){
+			if($(this).val() == this.defaultValue){				
+				$(this).val("")
+			}
+		})
+		.blur(function(){
+			if($.trim(this.value) == ""){
+				this.value = this.defaultValue;
+			}
+		});
+		// $(":password").focus(function(){
+		// 	if(this.value == this.defaultValue){
+		// 		this.value = $(this).val("")
+		// 	}
+		// })
+	</script>
+</body>
+</html>

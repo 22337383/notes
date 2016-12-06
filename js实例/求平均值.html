@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = [10,20,30];
+		var sum = 0;
+		function age(a){
+			for (var i = 0; i < a.length; i++) {
+			//累加求和
+			sum = sum +a[i];
+		}
+		//返回平均值
+		return sum/a.length;
+		}
+		// 传入参数，打印返回值
+		console.log(age(a));
+	</script>
+</body>
+</html>

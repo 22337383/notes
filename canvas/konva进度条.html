@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #f0f0f0;
+			overflow: hidden;
+		}
+	</style>
+	<script type="text/javascript" src="konva/konva.js"></script>
+</head>
+<body>
+	<div id="container">
+		
+	</div>
+	<script type="text/javascript">
+		// 添加舞台
+		var stage = new Konva.Stage({
+			container:'container',//舞台
+			width:window.innerWidth,//全屏
+			height:window.innerHeight
+		})
+		//添加层
+		var layer = new Konva.Layer();
+		stage.add(layer);
+		
+		// 进度条内部矩形
+		var x = stage.width() / 8;//x 起始点
+		var y = stage.height() / 2;//y 起始点
+		var maxWidth = 3 / 4 * stage.width();//左右各留1/8
+		var height = stage.height() / 12;//进度条高度为整个屏幕的 1/12
+		var inRect = new Konva.Rect({
+			x:x,
+			y:y,
+			width:100,
+			height:height,
+			fill:'teal',
+			opacity:0.8,
+			cornerRadius:height / 2 //设置圆角
+		})
+		layer.add(inRect);
+
+		// 进度条外部矩形
+		var outRect = new Konva.Rect({
+			x:x,
+			y:y,
+			width:maxWidth,
+			height:height,
+			stroke:'orange',
+			opacity:0.8,
+			cornerRadius:height / 2 //设置圆角
+		})
+		layer.add(outRect);
+		//绘图
+		layer.draw();
+
+		//进度条动画
+		inRect.to({
+			width:maxWidth,
+			duration:2// time
+			// easing: Konva.Easings.ElasticEaseOut// 默认线性
+		})
+	</script>
+</body>
+</html>

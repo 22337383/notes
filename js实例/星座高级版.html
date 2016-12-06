@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 200px;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+		}
+		.top{
+			text-align: center;
+		}
+		/* css通过背景图片重合，然后改变图片的宽度截取图片 */
+		.star1{
+			width: 80px;
+			height: 13px;
+			background: url('img/yunshi.png');		
+			position: relative;
+		}
+		#star2{
+			width: 0px;
+			height: 13px;
+			background: url('img/yunshi.png') left bottom;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+
+		}
+		#icon{
+			background: url('img/icon.png');
+			width: 50px;
+			height: 50px;
+			background-position: 0 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="top">
+			<select id="sele">
+				<option value="0">白羊座</option>
+				<option value="1">金牛座</option>
+				<option value="2">水瓶座</option>
+				<option value="3">天蝎座</option>
+				<option value="4">处女座</option>
+			</select>
+		</div>
+		<div class="yunshi">
+		<span>今日运势：</span>
+			<div class="star1">
+				<div id="star2"></div>		
+			</div>
+			<div id="content">
+				
+			</div>
+			<div id="icon">
+				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	function $(id){
+		return document.getElementById(id);
+	}
+
+	var arr = [10,8,9,5,7];//这个数组用来存星座运势
+	var arrtxt = ["白羊座你好啊","我是金牛座","水瓶座你好啊","天蝎座你好啊","处女座你好啊"];//这个数组用来存内容
+		$("sele").onchange= function(){
+			// 把value值作为下标，获取相应的数组中的值
+			$("star2").style.width = arr[this.value]*8+"px";
+			$("content").innerHTML = arrtxt[this.value];
+			//第二次犯错：忘记加style关键字
+			$("icon").style.backgroundPosition = "0 "+(-50*this.value)+"px";
+		}
+	</script>
+</body>
+</html>

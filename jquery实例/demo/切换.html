@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>切换</title>
+	<script type="text/javascript" src="jquery.js"></script>
+ <style type="text/css">
+ 	.box{
+ 		width: 500px;
+ 		border: 1px solid red;
+ 		margin: 50px auto;
+ 	}
+ 	p{
+ 		display: none;
+ 	}
+ </style>
+</head>
+<body>
+    <div class="box">
+	<h3 class="title">什么是jQuery</h3>
+	<p>逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始逐渐恢复计划就开始分局书记恐惧时回家的风格名叫快速</p>
+	</div>
+	<script type="text/javascript">
+	//点击事件
+	// $(function(){
+	// 	$(".title").click(function(){
+	// 		if($("p").is(":hidden")){
+	// 			$("p").show(500);
+	// 		}else{
+	// 	$("p").hide(500);
+	// }
+	// 	})
+	// })
+
+	//鼠标经过事件
+	// $(function(){
+	// 	$(".title").mouseover(function(){
+	// 		$("p").show(500)
+	// 	}).mouseout(function(){
+	// 		$("p").hide(500)
+	// 	})
+	// })
+
+	//hover合成事件
+	// $(function(){
+	// $(".title").hover(function(){
+	// 	$("p").show(300)
+	// },function(){
+	// 	$("p").hide(300)
+	// })	
+    // })	
+
+    // toggle合成事件
+	$(function(){
+	$(".title").toggle(function(){
+		$("p").show(300)
+	},function(){
+		$("p").hide(300)
+	})	
+    })
+	</script>
+</body>
+</html>

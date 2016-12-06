@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;
+}
+	#box{
+		width: 100px;
+		height: 100px;
+		background: green;
+		position: absolute;
+		left: 0;
+	}
+</style>
+</head>
+<body>
+<button id="btn1">200</button>
+<button id="btn2">400</button>
+<div id="box"></div>
+<script type="text/javascript">
+	function $(id){return document.getElementById(id);}
+	$("btn1").onclick = function(){
+		animate($("box"),200)
+	}
+	$("btn2").onclick = function(){
+		animate($("box"),400)
+	}
+
+	// 缓动函数
+	var timer = null;
+	function animate(obj,target){
+		// 易错点：清除的是obj.timer
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var step = (target - obj.offsetLeft) / 10;
+			step = step > 0 ? Math.ceil(step) : Math.floor(step);
+			obj.style.left = step + obj.offsetLeft + "px";
+			if (obj.offsetLeft == target) {
+				clearInterval(obj.timer);
+			}
+		},30)
+	}
+</script>
+</body>
+</html>

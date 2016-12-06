@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file" name="" id="file"><span></span>
+	<script type="text/javascript">
+		// 思路：获取文件的名字，从后面的小数点截取到最后，最后判断
+		var file = document.getElementById("file");
+		file.onchange = function(){
+			var fileName = file.value;
+			var dian = fileName.lastIndexOf(".");
+			var img = fileName.substr(dian).toUpperCase();
+			//曾经错误：.JPG忘记加引号
+			if (img == ".JPG" || img == ".PNG" || img == ".JPEG") {
+				this.nextSibling.innerHTML = "格式正确";
+			}else{
+				this.nextSibling.innerHTML = "格式错误";
+			}
+		}
+	</script>
+</body>
+</html>

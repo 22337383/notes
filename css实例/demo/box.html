@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box</title>
+	<style>
+*{
+		padding: 0;
+		margin: 50px;
+	}
+	.box{
+		position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        transform: rotateY(-15deg);
+	}
+	.box:hover{
+		transform: rotateX(90deg) rotateY(-90deg);
+		transform-origin: center center;
+		transition: transform 8s linear;
+	}
+	/*以中心为旋转起点*/
+	.up{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: red;
+		/*transform:translate()*/
+		transform-origin: top;
+		transform: rotateX(90deg);
+	}
+	.left{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: orange;
+		transform-origin: left;
+		transform: rotateY(-90deg);
+	}
+	.after{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: yellow;	
+	}
+	.right{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: green;
+		transform-origin: right;
+		transform: rotateY(90deg);		
+	}
+	.before{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: blue;
+		/*transform-origin: left;*/
+		transform: translateZ(200px);	
+	}
+	.down{
+		opacity: 0.5;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 200px;
+		height: 200px;
+		background: purple;
+		transform-origin: bottom;
+		transform: rotateX(-90deg);		
+	}
+	</style>
+</head>
+<body>
+<div class="box">
+<div class="up"></div>
+<div class="left"></div>
+<div class="after"></div>
+<div class="right"></div>
+<div class="before"></div>
+<div class="down"></div>
+</div>
+	
+</body>
+</html>

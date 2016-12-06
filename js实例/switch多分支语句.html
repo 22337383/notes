@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt" name="" value="">
+	<input type="button" id="btn" name="" value="查询价格">
+	<script type="text/javascript">
+		var txt = document.getElementById("txt");
+		var btn = document.getElementById("btn");
+		// 传入参数
+		btn.onclick = function(){
+		switch (txt.value) {
+			// case相当于if的条件判断
+			case "苹果":
+				alert("苹果价格5元");
+				break;
+
+			case "橘子":
+				alert("橘子价格5元");
+				break;
+
+			case "梨子":
+				alert("梨子价格5元");
+				break;
+			default:
+				alert("没有这种水果")
+				break;
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 声明对象
+		/*var obj = {};
+		obj.name = "菜鸟博客";
+		obj.showName = function(){
+			console.log("haha")
+		}
+		console.log(obj.name);
+		obj.showName();*/
+
+
+
+	// 封装对象
+	/*function Person(name,age){
+		var obj = {};
+		// 创建属性
+		obj.Name = name;
+		obj.Age = age;
+		// 创建方法
+		obj.showName = function(){
+			console.log("我的名字是"+name);
+		}
+		// 一定要返回
+		return obj;
+	}
+	// 调用对象
+	var xiaowang = Person("小王",8);
+	console.log(xiaowang.Name);
+	console.log(xiaowang.Age);
+	xiaowang.showName();
+
+	var xiaoming = Person("小明",10);
+	console.log(xiaoming.Name);
+	console.log(xiaoming.Age);
+	xiaoming.showName();*/
+
+
+	// this new 改变指针 构造函数
+	function Person(name,age){
+		this.Name = name;
+		this.Age = age;
+		this.showName = function(){
+			console.log("名字是" + name);
+		}
+	}
+	var xiaowang =new Person("小王",8);
+	console.log(xiaowang.Name);
+	console.log(xiaowang.Age);
+	// console.log(xiaowang["Name"]);
+	xiaowang.showName();
+	</script>
+</body>
+</html>

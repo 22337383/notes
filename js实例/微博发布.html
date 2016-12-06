@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style-type: none;}
+        *{margin:0;padding: 0;}
+        .box {
+            margin: 100px auto;
+            width: 600px;
+            height: auto;
+            border:1px solid #333;
+            padding: 30px 0;
+        }
+        textarea {
+            width: 450px;
+            resize: none;  /*防止用户拖动 右下角*/
+        }
+        .box li {
+            width: 450px;
+            line-height: 30px;
+            border-bottom:1px dashed #ccc;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    微博发布: <textarea name="" id="" cols="30" rows="10"></textarea>  
+    <button>发布</button>
+
+</div>
+
+<script type="text/javascript">
+    var textarea = document.getElementsByTagName("textarea")[0];
+    var btn = document.getElementsByTagName("button")[0];
+    var ul = document.createElement("ul");
+    //添加节点
+    textarea.parentNode.appendChild(ul);
+    btn.onclick = function(){
+        if(textarea.value == ""){
+            alert("请输入内容");
+            return false;// 防止插入空节点
+        }
+        // 创建li节点，追加节点，插入内容
+        var li = document.createElement("li");
+        ul.appendChild(li);
+        li.innerHTML = textarea.value;
+        //发布完成后清空
+        textarea.value ="";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+	<script type="text/javascript">
+		document.onclick = function(){
+			alert("点击了网页");
+		}
+		var btn = document.getElementById("btn");
+		btn.onclick = function(event){
+			alert("点击按钮");
+
+			// 阻止冒泡
+		var event = event || window.event;
+			if (event && event.stopPropagation) {
+				event.stopPropagation();
+			}else{
+				event.cancelBubble();
+			}
+		}
+		
+	</script>
+</body>
+</html>

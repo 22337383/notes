@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	.heightlight{
+		background:green;
+	}
+	a{
+		display: none;
+		width: 200px;
+		/*必须浮动*/
+		float: left;
+		background: gray;
+	}
+	#nav{
+		width: 200px;
+		background: #f3f3f3;
+	}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div class="menu">
+		<p>菜单栏</p>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		</div>
+
+		<div class="menu">
+		<span>菜单栏</span>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		</div>
+
+		<div class="menu">
+		<span>菜单栏</span>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		<a href="#">这是一个链接</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+	//点击的时候执行一个函数
+	$(".menu").click(function(){
+		//给当前元素（span）加一个class属性
+		$("this").addClass("heightlight")
+		//当前元素的孩子a显示出来，定位到上次操作的元素
+		.children("a").show().end()
+
+		//同组的兄弟（其他span）去掉高亮
+		.siblings().removeClass("heightlight")
+		// 同组的兄弟孩子隐藏
+		.children("a").hide();
+	});
+	</script>
+	<!-- <script type="text/javascript">
+	$(document).ready(function() {
+		alert("hello world")
+	});
+	</script> -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			background: url('img/1.jpg') center center;
+		}
+	</style>
+</head>
+<body>
+	<select id="bg">
+		<option value="1">背景1</option>
+		<option value="2">背景2</option>
+		<option value="3">背景3</option>
+	</select>
+	<script type="text/javascript">
+		var bg = document.getElementById("bg");
+		//onchange事件，当选择改变的时候
+		bg.onchange = function(){
+			switch (this.value) {
+				//曾经错误：忘记加style这个关键字
+				case "1":
+					document.body.style.backgroundImage = "url(img/1.jpg)";
+					break;
+				case "2":
+					document.body.style.backgroundImage = "url(img/2.jpg)";
+					break;
+				case "3":
+					document.body.style.backgroundImage = "url(img/3.jpg)";
+					break;
+				default:
+					document.body.style.backgroundImage = "url(img/1.jpg)";
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

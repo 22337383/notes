@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.box{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.box ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.box ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.box ol li.current{ background:yellow;}
+
+</style>
+
+</head>
+
+<body>
+<div class="box" id='box'>
+	<div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200" /></li>
+        </ul>
+        <ol id="ol"></ol>
+    </div>
+</div>
+<script type="text/javascript" src="animate.js"></script>
+<script type="text/javascript">
+  var box = document.getElementById("box");
+  var ul = document.getElementById("ul");
+  var ulLis = ul.children; 
+  var ol = document.getElementById("ol");
+// 第一部分
+  // 克隆一个li用来做无缝滚动
+  var cloneLi = ulLis[0].cloneNode(true);
+  ul.appendChild(cloneLi);
+  // 动态生成ol下li
+  for (var i = 0; i < ulLis.length-1; i++) {
+    var li = document.createElement("li");
+    // 向li插入序号
+    li.innerHTML = i + 1;
+    // 插入节点
+    ol.appendChild(li);
+  }
+  // 第一个li高亮
+  ol.children[0].className = "current";
+
+// 第二部分
+  // 动画部分
+  var olLis = ol.children;
+  for (var i = 0; i < olLis.length; i++) {
+    olLis[i].index = i;//索引号
+    olLis[i].onmouseover = function(){
+    for (var i = 0; i < olLis.length; i++) {
+      olLis[i].className = "";
+    }
+    this.className = "current";
+    // 调用动画函数
+    animate(ul,-500*this.index);
+    // 当前的索引号为主 很重要
+    square = key = this.index;  
+  }
+}
+
+// 第三部分 重难点
+  // 定时播放
+  var timer = null;
+  var square = 0;// 小方块高亮控制
+  var key = 0;// 控制播放第几张图片
+  timer = setInterval(autoPlay,1000);
+  function autoPlay(){
+    key++;
+    if (key > ulLis.length - 1) {
+      ul.style.left = 0;// 播放完第五张迅速跳到第一张
+      key = 1;// 跳到第一张后,播放第二张
+    }
+    animate(ul,-500*key);
+
+    // 方块高亮
+    square++;
+    if (square > olLis.length - 1) {
+      square = 0;
+    }
+    for (var i = 0; i < olLis.length; i++) {
+      olLis[i].className = "";
+    }
+    olLis[square].className = "current";
+  }
+// 第四部分
+box.onmouseover = function(){
+  clearInterval(timer);
+}
+box.onmouseout = function(){
+  timer = setInterval(autoPlay,1000);
+}
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>质数</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//判断是否是质数
+	//思路：通过判断因数的个数（两个）来判断是否是质数
+		var num = parseInt(prompt("请输入一个数字"));
+		var sum = 0;
+		for (var i = 1; i <= num; i++) {
+		if(num % i == 0){		
+			sum++;
+		    }		
+		}
+		if(sum == 2){
+			console.log(num +"是一个质数");
+		}else{
+			console.log(num +"不是一个质数");
+		}
+		//有多个因数
+		// console.log(sum)
+	</script>
+</body>
+</html>

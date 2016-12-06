@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol{list-style:none}
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle {
+            position: absolute;
+            left: 50%;
+            margin-left:-50px;
+            bottom:10px;
+        }
+        .circle span {
+            float: left;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: pink;
+            text-align: center;
+            line-height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .circle span.active{
+        	background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="slider">
+        <ul id="list">
+            <li><img src="images/11.jpg" alt=""/></li>
+            <li><img src="images/22.jpg" alt=""/></li>
+            <li><img src="images/33.jpg" alt=""/></li>
+            <li><img src="images/44.jpg" alt=""/></li>
+            <li><img src="images/55.jpg" alt=""/></li>
+            <li><img src="images/66.jpg" alt=""/></li>
+        </ul>
+    </div>
+
+</div>
+<script type="text/javascript">
+
+	var box = document.getElementById("box");
+	var list = document.getElementById("list");
+	var div = document.createElement("div");
+	//曾经错误：设置节点不能重新定义一个变量
+	div.setAttribute("class","circle");
+	// 新节点添加到box后面
+	box.appendChild(div);
+
+
+	var childrens = list.children;
+	for (var i = 0; i <= childrens.length; i++) {
+		//每循环一次创建一个span,然后后插入内容
+		var spans = document.createElement("span");
+		spans.innerHTML = i+1;
+		// 把所有的span添加到div节点后面
+		div.appendChild(spans);
+
+	}
+
+    // spans[0].className = "active";这种方法是错误的
+    var divs = div.children;
+    divs[0].setAttribute("class", "active")
+</script>
+</body>
+</html>

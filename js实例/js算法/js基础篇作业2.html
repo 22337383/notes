@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var i = parseInt(prompt("输入0-1000的一个数字"));	
+
+	//数字从小到大穷尽法运算。先判断最复杂的数字，依次到简单
+		if (i % 5 == 0) {
+			if(i % 6 == 0){
+				alert("能被5和6整除")
+			}else{
+				alert("只能被5整除")
+			}
+		}else if(i % 6 == 0){
+			alert("只能被6整除")
+		}else{
+			alert("不能5和6整除")
+		}
+
+		//跳楼法
+		if(i % 5 == 0 && i % 6 == 0){
+			alert("能被5和6整除");
+		}else if(i % 5 == 0){
+				alert("只能被5整除");
+		}else if(i % 6 == 0){
+				alert("只能被6整除");		
+		}else{
+			alert("不能被5和6整除");
+		}
+		
+	</script>
+</body>
+</html>

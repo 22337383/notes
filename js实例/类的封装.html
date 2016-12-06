@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div class="box"></div>
+	<div></div>
+	<div></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="one box demo"></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+	<script type="text/javascript">
+	getClass("box");
+	console.log(getClass("box").length);	
+	function getClass(classname){
+		//浏览器如果支持，直接返回
+	if (document.getElementsByClassName){
+			return document.getElementsByClassName(classname);
+		}
+		// 浏览器不支持就遍历获取
+		var arr = [];
+		//遍历所有的元素节点
+		var all = document.getElementsByTagName("*");
+		for (var i = 0; i < all.length; i++) {
+			if(all[i].className == classname){
+				// 满足条件的标签存入数组
+				arr.push(all[i]);
+			}
+		}
+		return arr;
+	}
+	</script>
+</body>
+</html>

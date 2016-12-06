@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="konva/konva.js"></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #f0f0f0;
+			overflow: hidden;
+		}
+		div{
+			width: 100px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 220 126 66 90 -->
+	<div id="container"></div>
+	<script type="text/javascript">
+		var stage = new Konva.Stage({
+			container: 'container',
+			width: innerWidth,
+			height: innerHeight
+		})
+		var layer = new Konva.Layer();
+		stage.add(layer);
+
+		var cenX = stage.width() / 2;
+		var cenY = stage.height() / 2;
+
+		//绘制外圆
+		var inCircle = new Konva.Circle({
+			x: cenX,
+			y: cenY,
+			stroke: '#ccc',
+			strokeWidth: 4,
+			radius:220,
+			dash:[10, 4] //十像素的实现 四像素的虚线
+		})
+		layer.add(inCircle);
+
+		//绘制内圆
+		var outCircle = new Konva.Circle({
+			x: cenX,
+			y: cenY,
+			stroke: '#ccc',
+			strokeWidth: 4,
+			radius:126,
+			dash:[10, 4] //十像素的实现 四像素的虚线
+		})
+		layer.add(outCircle);
+
+		//绘制内环
+		var inRing = new Konva.Ring({
+			x: cenX,
+			y: cenY,
+			innerRadius: 66,//内环半径到外环半径 29
+			outerRadius: 90,
+			fill:'#ccc',
+			opacity: 0.2
+		})
+		layer.add(inRing);
+
+		//绘制内部实心圆
+		var cenCircle = new Konva.Circle({
+			x: cenX,
+			y: cenY,
+			radius: 66,
+			fill: '#525A82'
+		})
+		layer.add(cenCircle);
+
+		//添加文字
+		var cenText = new Konva.Text({
+			x: cenX - 66,
+			y: cenY - 9,
+			width: 132,
+			text: 'YESYES',
+			align: 'center',
+			fontSize: 18,
+			fill: '#fff'
+		})
+		layer.add(cenText);
+		layer.draw();
+
+		//动画2层绘制 
+		var t2_Layer = new Konva.Layer({//定义中心点为层的0 0点
+			x:cenX,
+			y:cenY
+		});
+		stage.add(t2_Layer);
+
+		//css3动画层
+		var x0 =  Math.cos(-60 * Math.PI / 180) * 126;
+		var y0 =  Math.sin(-60 * Math.PI / 180) * 126;
+		var cssCircle = new Konva.Circle({
+			x: x0,
+			y: y0,
+			fill: 'orange',
+			stroke: '#E9E9E9',
+			strokeWidth: 6,
+			radius: 30,
+			opacity: 0.8,
+		});
+		var cssText = new Konva.Text({
+			x: x0 - 36,
+			y: y0 - 7,
+			width: 72,
+			text: 'CSS3',
+			align: 'center',
+			fontSize: 14,
+			fill: '#fff'
+		})
+		t2_Layer.add(cssCircle);
+		t2_Layer.add(cssText);
+		t2_Layer.draw();
+
+			// html5动画层
+			var x1 = Math.cos(120 * Math.PI / 180) * 126;
+			var y1 = Math.sin(120 * Math.PI / 180) * 126;
+
+
+			var htmlCircle = new Konva.Circle({
+				x: x1,
+				y: y1,
+				fill: 'teal',
+				stroke: '#E9E9E9',
+				strokeWidth: 6,
+				radius: 30,
+				opacity: 0.8,
+			});
+			var htmlText = new Konva.Text({
+				x: x1 - 36,
+				y: y1 - 7,
+				width: 72,
+				text: 'HTML5',
+				align: 'center',
+				fontSize: 14,
+				fill: '#fff'
+			})
+			t2_Layer.add(htmlCircle);
+			t2_Layer.add(htmlText);
+			t2_Layer.draw();
+
+			//动画三环绘制
+			var t3_Layer = new Konva.Layer({
+				x:cenX,
+				y:cenY
+			});
+			stage.add(t3_Layer);
+
+			//jquery动画层
+			var x3 = Math.cos(30 * Math.PI / 180) * 220;
+			var y3 = Math.sin(30 * Math.PI / 180) * 220;
+			var jqCircle = new Konva.Circle({
+				x: x3,
+				y: y3,
+				fill: 'yellow',
+				stroke: '#E9E9E9',
+				strokeWidth: 6,
+				radius: 30,
+				opacity: 0.8,
+			});
+			var jqText = new Konva.Text({
+				x: x3 - 36,
+				y: y3 - 7,
+				width: 72,
+				text: 'jQuery',
+				align: 'center',
+				fontSize: 14,
+				fill: '#fff'
+			})
+			t3_Layer.add(jqCircle);
+			t3_Layer.add(jqText);
+			t3_Layer.draw();
+
+		// zepto动画层
+		var x4 = Math.cos(210 * Math.PI / 180) * 220;
+		var y4 = Math.sin(210 * Math.PI / 180) * 220;
+		var zeptoCircle = new Konva.Circle({
+			x: x4,
+			y: y4,
+			fill: 'red',
+			stroke: '#E9E9E9',
+			strokeWidth: 6,
+			radius: 30,
+			opacity: 0.8,
+		});
+		var zeptoText = new Konva.Text({
+			x: x4 - 36,
+			y: y4 - 7,
+			width: 72,
+			text: 'zepto',
+			align: 'center',
+			fontSize: 14,
+			fill: '#fff'
+		})
+		t3_Layer.add(zeptoCircle);
+		t3_Layer.add(zeptoText);
+		t3_Layer.draw();
+
+		//帧动画层
+		var secondAngle = 60;//每秒钟设置旋转60
+		var animate = new Konva.Animation(function(frame){
+			var rotateAngle =  secondAngle * frame.timeDiff / 1000;  //上一帧和当前帧的时间差，毫秒。
+
+			t2_Layer.rotate( rotateAngle );
+			/*t2_Layer.getChildren().each(function(e,i){
+				e.rotate(-rotateAngle);
+			});*/
+		}, t2_Layer);
+		animate.start();//启动动画
+
+		var secondAngle1 = 60;//每秒钟设置旋转60
+		var animate1 = new Konva.Animation(function(frame){
+			var rotateAngle1 =  secondAngle1 * frame.timeDiff / 1000;  //上一帧和当前帧的时间差，毫秒。
+			t3_Layer.rotate( rotateAngle1 );
+		}, t3_Layer);
+		animate1.start();//启动动画
+
+
+		//Konva的事件系统，jQuery一样的
+		//给动画层绑定一个鼠标移上去的事件
+		stage.on('mouseover', function(){
+			secondAngle = 10; 
+			secondAngle1 = 10; 
+		});
+		stage.on('mouseout', function(){
+			secondAngle = 60; 
+			secondAngle1 = 60; 
+		});
+	</script>
+</body>
+</html>

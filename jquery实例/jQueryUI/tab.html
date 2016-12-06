@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+	<style type="text/css">
+		.wrap div{
+			background: #ccc;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+<button>按钮</button>
+<div class="alert" title="dialog()方法"></div>
+<div class="wrap">弹出框</div>
+	<ul>
+		<li><a href="#tab1">tab</a></li>
+		<li><a href="#tab2">tab</a></li>
+		<li><a href="#tab3">tab</a></li>
+	</ul>
+	<div id="tab1">1</div>
+	<div id="tab2">2</div>
+	<div id="tab3">3</div>
+</div>
+	<script type="text/javascript">
+		$(function(){
+			$(".wrap").tabs();
+
+			// 弹出框
+			$("button").click(function(){
+				$(".alert").dialog();
+			})
+		})
+	</script>
+</body>
+</html>

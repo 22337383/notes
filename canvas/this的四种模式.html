@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//函数执行模式
+		function add(a,b){
+			console.log(this);// this == window
+			return (a + b);
+			
+		}
+		add();
+
+		//对象调用方法
+		function Person(){
+			this.show = function(){//this == p1
+				console.log(this);
+			}
+		}
+		var p1 = new Person();
+
+		//构造器调用模式
+		function Person(){
+			this.show = function(){//p1 == this
+				console.log(this);
+			}
+		}
+		var p1 = new Person();
+		p1.show();
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		for(var i = 1;i<=10000;i++){
+			if(yinshuhe(i) == i){
+				console.log(i);
+			}
+		}
+		// console.log(yinshuhe(21));
+		//这个函数用来返回某个数的因数和
+		function yinshuhe(num){
+			var sum = 0;
+			for(var i = 1;i<num;i++){
+				if(num % i == 0){
+					//说明i是num的一个因数,把因数进行累加
+					sum = sum + i;
+				}
+			}
+			return sum;
+		}
+	</script>
+</body>
+</html>

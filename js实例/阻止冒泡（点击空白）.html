@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{
+		height: 1200px;
+	}
+		.mark{
+			height: 100%;
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+		.box{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			background: #fff;
+			top: 40%;
+			left: 50%;
+			margin-left: -150px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<a href="javascript:;" id="login">登录</a>
+<a href="#" >注册</a>
+	<div class="mark" id="mark"></div>
+	<div class="box" id="box"></div>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		var event = event || window.event;
+			$("login").onclick = function(event){
+			$("mark").style.display = "block";
+			$("box").style.display = "block";
+			// 点击隐藏滚动条,忘记加style
+			document.body.style.overflow = "hidden";
+			//login是document的一部分，阻止冒泡
+			if (event && event.stopPropagation()) {
+				event.stopPropagation();
+			}else{
+				event.cancelBubble = true;
+			}
+		}
+		// box是document的一部分，通过判断阻止冒泡
+		document.onclick = function(event){
+			var targetId = event.target ? event.target.id : event.srcElement.id;
+			// 判断是重点：当点击的不是box的时候，执行隐藏，言外之意点击box不隐藏
+			if (targetId != "box") {
+				$("mark").style.display = "none";
+				$("box").style.display = "none";
+				document.body.style.overflow = "visible";
+			}
+		}
+	</script>
+</body>
+</html>

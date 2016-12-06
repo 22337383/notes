@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jd登录页面</title>
+	<style>
+		*{
+			padding:0;
+			margin: 0; 
+		}
+		a{
+			text-decoration: none;
+		   	font-size: 13px;
+		   	color: gray;
+		}
+		/* link visited hover active 
+		   love hate
+		*/
+		/*
+		  标签 10
+		  类 10 
+		*/
+	
+		/*a:hover{
+
+		}*/
+	
+	  a:hover{
+			color: rgb(243,58,60);
+			text-decoration: underline;
+		}
+	  .wrap{
+	   	/*height: 100px;*/
+	   	width: 990px;
+	   	/*background: yellow;*/
+	   	margin: 0 auto;
+	   	margin-top: 50px;
+	   }
+
+	   .wrap .logo{
+	   	  float: left;
+	   	  margin-right: 20px;
+	   }
+
+
+	   .wrap .welcome{
+	   	float: left;
+	   	/*background: blue;*/
+	   	height: 60px;
+	   	line-height: 60px;
+	   }
+
+	   .clear{
+	   	clear: both;
+	   }
+	   .content{
+	   	height: 475px;
+	   	background: pink;
+	   }
+	  
+
+	   /*中间内容样式*/
+	   .content{
+	   	/*background: red; #f9f9f9; rgb() rgba*/
+	   	background: rgb(233,56,84);
+	   }
+
+	   .c1{
+	   	width: 990px;
+	   	height: 475px;
+	   	background: url(banner.png) no-repeat;
+	   	/*border: 1px solid blue;*/
+	   	margin: 0 auto;
+	   	position: relative;
+	   }
+	   .login{
+	   		width: 306px;
+	   		/*height: 310px;*/
+	   		background: white;
+	   		/*绝对定位和 相对定位配合使用*/
+	   		position: absolute;
+	   		right: 50px;
+	   		top: 30px;
+	   		/*增大元素的宽度和高度*/
+	   		padding: 20px;
+	   }
+
+	   .item{
+	   	  height: 38px;
+	   	  background: pink;
+	   	  margin-bottom: 20px;
+	   	  border: 1px solid gray;
+	   }
+
+	   .item2{
+	   	  height: 20px;
+	   	  /*background: pink;*/
+	   }
+	   /*登录框内部样式*/
+	   .login h3{
+	   		/*background: skyblue;*/
+	   		height: 27px;
+	   		line-height: 27px;
+	   		margin-bottom: 20px;
+
+	   }
+	   .login h3 a{
+	   		float: right;
+	   		
+	   		color: red;
+	   		background: url(jd.png) no-repeat -104px -68px;
+	   		
+	   		line-height: 29px;
+	   		
+	   		padding-left: 21px;
+	   }
+
+	 /*  .login h3 a:hover{
+	   	 color: yellow;
+	   }*/
+
+	   /*用户样式*/
+	   .item label.user{
+	   		width: 38px;
+	   		height: 38px;
+	   		
+	   		float: left;
+	   		background: url(jd.png) no-repeat;
+	   }
+
+	   .item label.secret{
+	   		width: 38px;
+	   		height: 38px;
+	   		
+	   		float: left;
+	   		background: url(jd.png) no-repeat -48px 0;
+	   }
+	   .item input{
+	   	  float: left;
+	   	  width: 245px;
+	   	  height: 38px;
+	   	  border: none;
+	   	  border-left: 1px solid gray;
+	   	  padding-left: 20px;
+	   	  color: gray;
+	   }
+	   /*checkbox样式*/
+
+	   .item2{
+	   	  font-size: 0;
+	   	  /*vertical-align: middle;*/
+	   }
+	   .item2 input{
+	   	  vertical-align: middle;
+	   }
+	   .item2 span{
+	   	font-size: 13px;
+	   	color: gray;
+	   	vertical-align: middle;
+	   }
+	   .item2 a{
+	   	float:  right;
+	  
+	   }
+	   /*登录*/
+	   .btn{
+	   		display: block;
+	   		height: 30px;
+	   		background: rgba(233,58,84,1);
+	   		text-align: center;
+	   		line-height: 30px;
+	   		color: white;
+	   		font-size: 20px;
+	   		text-decoration: none;
+	   		letter-spacing: 10px;
+	   		margin-top: 20px;
+
+	   }
+	   .btn:hover{
+	   	   text-decoration: none;
+	   	   color: white;
+	   }
+
+	   .footer{
+		   	margin-bottom: 50px;
+		   	text-align: center;
+		   	color: gray;
+		   	font-size: 13px;
+		   	text-decoration: none;
+	   }
+	   .footer a{
+	   		
+	   		margin-right: 10px;
+	   }
+
+	   .footer .contact{
+	   		margin-bottom: 20px;
+	   }
+
+	 
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<img class="logo" src="logo.png" alt="京东">
+		<h3 class="welcome">欢迎登录</h3>
+		
+		<div class="clear"></div>
+	</div>
+	<div class="content">
+		<div class="c1">
+			<div class="login">
+				<h3>京东会员 <a href="#">立即注册</a> </h3>
+				<form action="#" class="formLongin">
+					<div class="item">
+						<label class="user" for="username"></label>
+						<input id="username" type="text" value="邮箱/用户名/已验证手机">
+					</div>
+					<div class="item">
+						<label class="secret" for="pass"></label>
+						<input id="pass" type="password">
+					</div>
+					<div class="item2">
+						<input type="checkbox">
+						<span>自动登录</span>
+						<a href="#">忘记密码?</a>
+					</div>
+					<a class="btn" href="#">登录</a>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+	<div class="footer wrap">
+		<div class="contact">
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>|
+			<a href="#">京东公益</a>
+		</div>
+		<div class="private">
+			Copyright&copy;2004-2015 京东JD.com 版权所有
+		</div>
+	</div>
+</body>
+</html>

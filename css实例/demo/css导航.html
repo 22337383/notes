@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css导航</title>
+	<style type="text/css">
+	/*#home .nav .home a,#home .nav .about a,#home .nav .join a{
+	color: red;
+	background: yellow;
+	}*/
+	ul.nav {
+		padding: 0;
+		margin:0;
+		list-style: none;
+
+
+	}
+	.nav li{
+		float: left;
+		margin-right: 0.5em;
+		border: 1px solid gray;
+		height:30px;
+		width:30px;
+		text-align:center;
+		line-height:30px;
+		background:#f3f3f3;
+	}
+	a{
+		color:black;
+		text-decoration: none;
+
+	}
+	/*根于选择器计算优先级*/
+   .nav .prev li,.nav .next li{
+   	width: 60px;
+   	margin-right: 1em;
+
+   }
+   /*属性选择器只能作用于属性下面的文本，优先级比较低*/
+   .nav li>a[rel=next],.nav li>a[rel=prev]{
+   	color: red;
+   }
+	ul.nav a[rel="prev"]:before{
+		content: "\00AB";
+		padding-right: 0.5em;
+	}
+	 ul.nav a[rel="next"]:after{
+		content: "\00BB";
+		padding-left: 0.5em;
+	}
+	</style>
+</head>
+<body>
+	<div id="home">
+		<ul class="nav">
+		<div class="prev"><li><a href="#" rel="prev">prev</a></li></div>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+		<div class="next"><li><a href="#" rel="next">next</a></li></div>
+		</ol>
+	</div>
+</body>
+</html>

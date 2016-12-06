@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="data.js"></script>
+    <style type="text/css">
+    html,
+    body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    
+    .aside {
+        width: 220px;
+        height: 100%;
+        float: left;
+        background: #666;
+    }
+    
+    .main {
+        margin-left: 220px;
+        height: 100%;
+        background: #eee;
+        overflow: auto;
+    }
+    
+    li {
+        list-style: none;
+        color: #fff;
+        height: 40px;
+        width: 220px;
+    }
+    </style>
+</head>
+
+<body>
+    <aside class="aside">
+        <ul id="m_title"></ul>
+    </aside>
+    <article class="main">
+        <p id="m_content"></p>
+    </article>
+    <script type="text/javascript">
+    (function() {
+        var m_title = document.querySelector('#m_title');
+        for (var title in data) {
+            // console.log(data[title])
+            var m_lis = document.createElement('li');
+            m_lis.innerHTML = title;
+            //data属性储存数据
+            m_lis.setAttribute('data-title', title);
+            m_title.appendChild(m_lis);
+        }
+
+        var title_lis = document.querySelectorAll('#m_title > li');
+        var m_content = document.querySelector('#m_content');
+        for (var i = 0; i < title_lis.length; i++) {
+            title_lis[i].addEventListener('click', function() {
+                //dataset获取data集合
+                var data_title = this.dataset['title'];
+                // console.log(title)
+                m_content.innerHTML = data[data_title];
+                //操作历史记录
+                if (window.history && history.pushState) {
+                    history.pushState(data_title, '不支持历史记录窗口', '?t=' + data_title)
+                } else {
+                    console.log('不支持pushState')
+                }
+            })
+        }
+
+        //popstate事件和pushState事件
+        window.addEventListener('popstate', function(e) {
+            m_content.innerHTML = data[e.state];
+            //e.state = data_title
+            console.log(e.state)
+        })
+        //这段代码目的是让外部能访问历史记录
+        var title = window.location.search.split('=')[1]; //获取到的是编码后的title
+        if (title) {
+        m_content.innerHTML = data[decodeURI(title)];
+        	
+        }
+
+    })()
+    </script>
+</body>
+
+</html>

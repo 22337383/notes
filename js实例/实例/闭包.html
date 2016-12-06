@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 闭包就是函数访问另外一个函数内部的局部变量
+		function outfun(){
+			var a = 0;
+			function infun(){
+				a++;
+				console.log(a);
+			}
+			return infun;
+		}
+		// 结果1 2 3
+		var obj = outfun();
+		obj();
+		obj();
+		obj();
+		// 结果 1 2
+		var obj2 = outfun();
+		obj2();
+		obj2();
+
+		// 另一种常用方法
+		function out1fun(){
+			var a = 0;
+			return function(){
+				a++;
+				console.log(a);
+			}
+		}
+		var obj3 = out1fun();
+		obj3();
+		obj3();
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css操作</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<p class="size">这是一个段落</p>
+	<script type="text/javascript">
+	//数值不需要引号
+		$("p:size").css("background","yellow").height(100).width(300);
+		alert($("p:size").offset().top);
+		alert($("p:size").offset().left);
+	</script>
+</body>
+</html>

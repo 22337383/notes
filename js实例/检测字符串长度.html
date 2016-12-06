@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var demo = "hello world 世界你好";
+		console.log(getStringLength(demo));
+		//思路：遍历所有的字符，获得字符的Unicode编码，判断是中文还是英文
+		function getStringLength(str){
+			var len = 0;
+			for (var i = 0; i < str.length; i++) {
+				if (str.charCodeAt(i) >= 0 && str.charCodeAt(i)<=127) {
+					len++;
+				}else{
+					len+=2;
+				}
+			}
+			return len;
+		}
+	</script>
+</body>
+</html>

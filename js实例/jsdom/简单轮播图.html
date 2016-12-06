@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0 auto;
+		}
+		.box{
+			width: 800px;
+			height: 500px;
+			margin-top: 100px;
+			border: 3px solid red;
+			position: relative;
+		}
+		.box img {
+			width: 800px;
+			height: 500px
+		}
+		.list {
+			/* 对列表进行定位，并设置头明度 */
+		    position: absolute;
+			bottom: 20px;	
+			left: 50%;
+			margin-left: -40px;
+			opacity: 0.5;
+			text-align: center;
+		}
+		.list li{
+			float: left;			
+			list-style: none;
+			background: black;
+			color: #fff;
+			font-size: 20px;
+			padding: 5px;
+			border-radius: 20px;
+			margin-right: 10px;
+			width: 20px;
+			height: 20px;
+		}
+		.arrow{
+			display: none;
+		}
+		.arrow a{
+			
+			text-decoration: none;
+			font-size: 30px;
+			color: #fff;
+			position: absolute;
+			width: 35px;
+			height: 70px;
+			/* background: #000;
+			opacity: 0.5; */
+			background: rgba(255, 255, 255, 0.5)
+		}
+		a.arrl{
+			top: 50%;
+			left: 0;
+			margin-top: -20px;
+			text-align: center;
+			line-height: 70px;
+		}
+		a.arrr{
+			top: 50%;
+			right: 0;
+			margin-top: -20px;
+			text-align: center;
+			line-height: 70px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box" id="box">
+		<img src="images/11.jpg" alt="" id="pic">
+		<div class="arrow" id="arrow">
+			<a href="#" class="arrl"> < </a>
+			<a href="#" class="arrr"> > </a>
+		</div>
+		<ul class="list">
+			<li id="bt1">1</li>
+			<li id="bt2">2</li>
+			<li id="bt3">3</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+			var arrow = document.getElementById("arrow");
+			var box = document.getElementById("box");
+			box.onmouseover=function(){
+				arrow.style.display="block";
+			}
+			box.onmouseout=function(){
+				arrow.style.display="none";
+			}
+
+			
+			var bt1 = document.getElementById("bt1");
+			bt1.onmouseover=function(){
+				pic.src="images/11.jpg";
+			}
+			var bt2 = document.getElementById("bt2");
+			bt2.onmouseover=function(){
+				pic.src="images/22.jpg";
+			}
+			var bt3 = document.getElementById("bt3");
+			bt3.onmouseover=function(){
+				pic.src="images/33.jpg";
+			}
+	</script>
+</body>
+</html>

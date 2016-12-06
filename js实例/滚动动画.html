@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+		html,body,ul,ul li{
+			width: 100%;
+			height: 100%;
+		}
+		ol{
+			position: fixed;
+			top: 50px;
+		}
+		ol li{
+			height: 50px;
+			width: 50px;
+			border: 1px solid #ccc;
+			line-height: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul">
+		<li>文档1</li>
+		<li>文档2</li>
+		<li>文档3</li>
+		<li>文档4</li>
+	</ul>
+	<ol id="ol">
+		<li>文档1</li>
+		<li>文档2</li>
+		<li>文档3</li>
+		<li>文档4</li>
+	</ol>
+	<script type="text/javascript" src="scroll.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var ul = document.getElementById("ul");
+			var ulLi = ul.children;
+			var ol = document.getElementById("ol")
+			var olLi = ol.children;
+			var leader = 0,target = 0,timer = null;
+			var color = ["yellow","purple","green","gray"]
+			for (var i = 0; i < ulLi.length; i++) {
+				ulLi[i].style.backgroundColor = color[i];
+				olLi[i].style.backgroundColor = color[i];
+				// 获得索引号
+				olLi[i].index = i;				
+				olLi[i].onclick = function(){
+					clearInterval(timer);
+					// 核心语句 计算目标距离
+					target = ulLi[this.index].offsetTop;
+					timer = setInterval(function(){
+						leader = leader + (target - leader) / 10;
+						window.scrollTo(0,leader);
+					},30)
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>

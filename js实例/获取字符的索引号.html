@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	字符串：<input id="aa" type="text" name="" value="">
+	查找字符：<input id="bb" type="text" name="" value="">
+	<button id="btn1">indexOf</button>
+	<button id="btn2">lsatIndexOf</button>
+	<script type="text/javascript">
+	// txt.indexOf("str"),获得字符在字符串中的索引号
+	// txt.lastIndexOf("str"),从后面获得字符在字符串中的索引号
+		function $(id){
+			return document.getElementById(id);
+		}
+		$("btn1").onclick = function (){
+			alert($("aa").value.indexOf($("bb").value));
+		}
+		$("btn2").onclick = function (){
+			alert($("aa").value.lastIndexOf($("bb").value));
+		}
+	</script>
+</body>
+</html>

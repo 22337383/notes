@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+</head>
+<body>
+	<canvas id="cav"></canvas>
+	<script>
+      var pic=document.getElementById('cav');
+      pic.width=700;
+      pic.height=500;
+      pic.style.background='gray';
+
+      var ctx = pic.getContext("2d");
+	  var img = new Image();
+	  img.src = "bg.jpg";
+
+	  var x=0;//
+	  var idx =0;
+	  img.onload=function(){
+	  var ww = img.width/3;
+	  var hh = img.height/3;
+       setInterval(function(){
+            	ctx.clearRect(100,100,ww,hh);
+            	 ctx.drawImage(img,ww*idx,0,ww,hh,100,100,ww,hh);
+		       	   idx++;
+		       	   if (idx ==3) {
+		       	     	idx = 0;
+		       	   };
+		            },200);
+           
+       }
+       
+      </script>
+</body>
+</html>

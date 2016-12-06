@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<style type="text/css">
+		.zhuan{
+			/* 一定要把div转为行内块元素 */
+			display: inline-block;
+			transition: all 2s;
+		}
+		.xuan{
+			transform: rotate(360deg);
+		}
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		$(".zhuan").hover(function(){
+			$(this).toggleClass("xuan");
+		})
+	})	
+	</script>
+</head>
+<body>
+	<div class="zhuan">
+		<img src="zhuan.jpg">
+	</div>
+</body>
+</html>

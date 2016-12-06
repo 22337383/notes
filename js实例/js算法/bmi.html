@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = parseFloat(prompt("输入身高m"));
+		var b = parseFloat(prompt("请输入体重kg"));
+		var c = b/(a*a);
+		if (c > 32) {
+			alert("你的体重过胖")
+		}else if(c >28 && c<=32){
+			alert("你的体重肥胖")
+		}else if (c>25 && c<=28) {
+			alert("你的体重过重")
+		}else if (c>18.5 && c<=24.99) {
+			alert("你的体重正常")
+		}else{
+			alert("你的体重过轻")
+		}
+		//console.log(parseFloat(15.2668))
+	</script>
+</body>
+</html>

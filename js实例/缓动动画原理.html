@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;
+}
+	div{
+		width: 100px;
+		height: 100px;
+		background: green;
+		position: absolute;
+		left: 0;
+	}
+</style>
+</head>
+<body>
+<button>按钮</button>
+<div></div>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	var box = document.getElementsByTagName("div")[0];
+	var target = 400;
+	var timer = null;
+	btn.onclick = function(){
+		timer = setInterval(function(){
+			var step = (target - box.offsetLeft) / 10;
+			step = step > 0 ? Math.ceil(step) : Math.floor(step);
+			box.style.left = step + box.offsetLeft + "px";
+			if (box.offsetLeft == target) {
+				clearInterval(timer);
+			}
+		},30)
+	}
+</script>
+</body>
+</html>

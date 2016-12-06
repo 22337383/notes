@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.slider{
+			width: 300px;
+			height: 10px;
+			background: #ccc;
+			position: relative;
+			margin: 100px;
+		}
+		.bar{
+			position: absolute;
+			top: -3px;
+			width: 16px;
+			height: 16px;
+			border-radius: 6px;
+			background: green;
+
+		}
+		.mask{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 10px;
+			background: green;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="slider" id="slider">
+		<div class="bar"></div>
+		<div class="mask"></div>
+	</div>
+<div id="demo"></div>
+	<script type="text/javascript">
+		var slider = document.getElementById("slider");
+		var demo = document.getElementById("demo")
+		var bar = slider.children[0];
+		var mask = slider.children[1];
+		bar.onmousedown = function(event){
+			// 获得滚动条距离屏幕的距离
+			var left = event.clientX - bar.offsetLeft;
+			// var left = slider.offsetLeft;
+			// 获得按钮要移动的距离
+			document.onmousemove = function(event){
+				var move = event.clientX - left;				
+				if (move >= slider.offsetWidth) {
+					move = slider.offsetWidth;
+				}else if (move <= 0) {
+					move =0;
+				}
+				bar.style.left = move + "px";
+				mask.style.width = move + "px";
+				demo.innerHTML = parseInt(move/slider.offsetWidth*100)+"%";
+				// 解决拖动过快导致选中文字的bug
+				window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empry();
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+		}
+	</script>
+</body>
+</html>

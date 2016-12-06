@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var aa = parseInt(prompt("请输入一个偶数"));
+	for(var i = 1;i<=aa;i++){
+		if(zhishu(i)&&zhishu(aa-i)){
+			console.log(aa+"等于质数"+i+"质数"+(aa-i)+"的和")
+		}
+	}
+
+		function zhishu(num){
+			var yinshu = 0;
+			//小于等于num
+			for (var i = 1; i <= num; i++) {
+				if(num % i == 0){
+					yinshu++;
+				}
+			}
+			if(yinshu == 2){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示与隐藏</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	.box{
+		width: 300px;
+		border: 1px solid red;
+
+	}
+	.box ul{
+		list-style: none;
+	}
+	.box li{
+		float: left;
+		width: 80px；
+		margin:10px;
+	}
+	.box a{
+		width: 80px;
+		text-decoration: none;
+		
+	}
+	.hlight a{
+		color: red;
+	}
+	.showmore{
+		clear: both;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+	<ul>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">华为</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">oppo</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">vivo</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">三星</a><i>(2565)</i></li>
+		<li><a href="#">更多</a><i>(2565)</i></li>
+	</ul>
+
+	<div class="showmore">
+	<!-- <a href="#" id="more"><span>显示全部</span></a> -->
+	<button>显示全部</button>
+	</div>
+	</div>
+
+	<script type="text/javascript">
+// 加载dom
+	$(function(){
+		// 选择要隐藏的li
+		var $aa=$("ul li:gt(5):not(:last)");
+		$aa.hide();
+		// 获取按钮
+		var $bb=$("div.showmore button");
+		// 点击执行函数
+		$bb.toggle(function() {
+			// 如果li是显示状态则隐藏，文本改变，高亮移除
+				$aa.is(":visible") 
+				$aa.hide();
+				$bb.text("显示全部");
+				$("ul li").removeClass("hlight");
+			
+			function(){
+			$aa.show();
+			$bb.css("background","green").text("精简显示");
+
+			$("ul li").filter(":contains('华为'),:contains('oppo'),:contains('vivo')")
+				.addClass("hlight");
+			}
+
+		
+	})
+	</script>
+	
+</body>
+</html>

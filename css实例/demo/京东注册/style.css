@@ -1,0 +1,79 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.wrap{
+	width: 960px;
+	border: 1px solid #999;
+	margin: 20px auto;
+}
+
+h3{
+	font-size: 14px;
+
+	background: #f0f0f0;
+	height: 20px;
+	line-height: 20px;
+
+}
+
+span{
+	color: red;
+	margin-right: 5px;
+}
+
+.item{
+	margin-top: 20px;
+	
+	width: 600px;
+	margin-left: 200px;
+}
+
+label{
+	
+
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+
+}
+
+
+.username{
+	background: url(imgs/user.jpg) no-repeat 230px 50%;
+	
+}
+input[type="password"]{
+
+	background: url(imgs/psw.jpg) no-repeat 230px 50%;
+	
+}
+
+input[type="text"] ,input[type="password"]{
+	width: 250px;
+	height: 30px;
+	text-indent: 10px;
+
+}
+input[type="checkbox"]{
+	margin-right: 5px;
+	vertical-align: middle;
+}
+.option{
+	color: black;
+	// 垂直居中
+	vertical-align: middle;
+}
+.btn{
+	
+	text-align: center;
+	margin-bottom: 20px;
+}
+.login{
+	width: 200px;
+	height: 30px;
+	background: red;
+	border: none;
+	
+}

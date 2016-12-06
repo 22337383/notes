@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom转换</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<fieldset>
+	<input id="cx" type="checkbox" name="" >
+	<label for="cx">您已阅读同意</label>
+	</fieldset>
+	<script type="text/javascript">
+	// $(function(){
+	// 	var $cx=$("#cx");
+	// 	var cx=$cx[0];
+	// 	$cx.click(function() {
+	// 		if(cx.checked){
+	// 			alert("ok");
+	// 		}
+	// 	})
+
+	// });
+
+	$(function(){
+		var $cx=$("#cx");
+		$cx.click(function(){
+			if($cx.is(":checked")){
+				alert("ok");
+			}
+		})
+	});
+
+	jQuery.noConflict()//转移控制权
+	var $q=jQuery.noConflict()//自定义jquery的快捷方式
+	</script>
+</body>
+</html>

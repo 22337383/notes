@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/javascript">
+		/*var demo = document.getElementById("demo");
+		//思路：设置一个定时器，每隔一秒自调一次，不满住条件则返回首页
+		var time = 5;
+		setTimeout(index,2000);//延时器，两秒后执行函数
+
+		// 倒计时，每隔一秒调用一次自己
+		function index(){
+			time--;
+			demo.innerHTML = "<a href = 'http://www.baidu.com'>"+time+"秒后跳转到首页</a>";
+			if (time == 0) {
+				window.location.href = "http://www.baidu.com";
+
+			}else{
+				setTimeout(index,1000);
+			}
+		}*/
+
+		// 缺点：无法设置延迟时间，是立即执行的
+		var demo = document.getElementById("demo");
+		var time = 5;
+		setInterval(index,1000);
+
+		// 倒计时，每隔一秒执行一次函数
+		function index(){
+			time--;
+			demo.innerHTML = "<a href = 'http://www.baidu.com'>"+time+"秒后跳转到首页</a>";
+			if (time == 0) {
+				window.location.href = "http://www.baidu.com";
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

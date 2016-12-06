@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrong{
+			color: red;
+			
+		}
+		.right{
+			color: green;
+		}
+		#result{
+			display: block;
+			background: #ccc;
+			width: 200px;
+			height: 20px;
+			float: left;
+			position: absolute;
+			left: 250px;
+			top: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	语文：<input type="text" name="" id="txt" value=""> <span id="result">请输入成绩</span>
+	<!-- 数学：<input type="text" name=""> -->
+	<script type="text/javascript">
+	var txt = document.getElementById("txt")
+	var result = document.getElementById("result")
+			txt.onblur = function (){
+				if(this.value == ""){
+					result.className = "wrong";
+					result.innerHTML = "请输入成绩";
+				}else if (this.value>150||this.value<0) {
+					result.className = "wrong";
+					result.innerHTML = "请输入正确的成绩";
+					//如果不是数字inNaN(this.value)
+				}else if (isNaN(this.value)) {
+					result.className = "wrong";
+					result.innerHTML = "请输入数字";
+				}else {
+					result.className="right";
+					result.innerHTML="成绩通过验证";
+				}
+			}
+
+	</script>
+</body>
+</html>

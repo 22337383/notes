@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.active{
+		background: green;
+	}
+	</style>
+</head>
+<body>
+<button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button>
+	<script type="text/javascript">
+		var links = document.getElementsByTagName("button");
+		for (var i = 0; i < links.length; i++) {
+			//自定义一个属性给这个数组,序号等于自己的下标
+			links[i].xuhao = i;
+			links[i].onclick = function (){
+			alert(this.xuhao);
+			// 排他思想，排除其他
+			for (var i = 0; i < links.length; i++) {				
+				links[i].className = "";
+			}
+			// 留下自己			
+				this.className = "active";
+			}
+		}
+	</script>
+</body>
+</html>

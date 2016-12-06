@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>防腾讯固定导航栏</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .main{
+            width: 1000px;
+            margin:0 auto;
+            margin-top: 20px;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        // 思路：判断被卷去的头部是否大于图片的高度，然后增加定位
+        $(function(){
+            var h = $(".top").height();
+            $(window).scroll(function(){
+                var scrollH = $(document).scrollTop();
+                if (scrollH > h) {
+                    $(".nav").css({"position":"fixed","top":0});
+                }else{
+                $(".nav").css({"position":"static","top":0});
+            }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="top">
+    <img src="images/top.png" />
+</div>
+<div class="nav">
+    <img src="images/nav.png" />
+
+</div>
+<div class="main">
+    <img src="images/main.png" />
+</div>
+</body>
+</html>

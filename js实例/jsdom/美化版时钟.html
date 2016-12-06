@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin:50px auto;
+            background: url(images/clock.jpg) no-repeat;
+            position: relative;
+        }
+        .clock div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+        .h {
+            background: url(images/hour.png) no-repeat center center;
+        }
+        .m {
+            background: url(images/minute.png) no-repeat center center;
+        }
+        .s {
+            background: url(images/second.png) no-repeat center center;
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div class="h" id="hour"></div>
+    <div class="m" id="minute"></div>
+    <div class="s" id="second"></div>
+</div>
+
+<script type="text/javascript">
+    // 思路：获得具体的时，分，秒，毫秒，最后换成角都
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    var second = document.getElementById("second");
+    
+    // 重点：时间变量必须放到函数内部
+    setInterval(function(){
+        var date = new Date();
+        var ms = date.getMilliseconds();//获取现在毫秒,例如500
+        var s = date.getSeconds()+ms/1000;//获取现在秒，例如，32.5秒
+        var m = date.getMinutes()+s/60;//获取现在分钟，例如20.5分
+        var h = date.getHours()-12+m/60;//获取现在小时，例如6.30小时
+    // 设置旋转度数，曾经错误：双引号错误
+        second.style.WebkitTransform = "rotate("+ s*6 +"deg)";
+        minute.style.WebkitTransform = "rotate("+ m*6 +"deg)";
+        hour.style.WebkitTransform = "rotate("+ h*30 +"deg)";
+        
+        second.style.MozTransform = "rotate("+ s*6 +"deg)";
+        minute.style.MozTransform = "rotate("+ m*6 +"deg)";
+        hour.style.MozTransform = "rotate("+ h*30 +"deg)";
+    },1000)
+    
+</script>
+</body>
+</html>

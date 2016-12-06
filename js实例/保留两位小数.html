@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 思路：把数字转为字符串，获取小数点位置，截取字符串
+		var num = 3.1415926;
+		var str = num + "";
+		//重点：indexOf只能取得字符串,substr正能截取字符串
+		var dian = str.indexOf(".");
+		console.log(str.substr(0,dian+3));
+
+		// 思路二：数字乘以倍数再取整，在除以倍数
+		console.log(parseInt(num*100)/100);
+		//思路三：用toFixed
+		console.log(num.toFixed(2));
+	</script>
+</body>
+</html>

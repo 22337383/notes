@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="checkbox" name="">足球
+	<input type="button" name="" id="btn" value="全选">
+	<input type="button" name="" id="btn2" value="取消全选">
+	<input type="button" name="" id="btn3" value="反选">
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		var btn2 = document.getElementById("btn2");
+		var btn3 = document.getElementById("btn3");
+		var box = document.getElementsByTagName("input")
+		
+		btn.onclick = function (){
+			for (var i = 0; i < box.length; i++) {
+				box[i].checked = true;
+			}
+		}
+		btn2.onclick = function (){
+			for (var i = 0; i < box.length; i++) {
+				box[i].checked = false;
+			}
+		}
+		btn3.onclick = function (){
+			for (var i = 0; i < box.length; i++) {
+				if(box[i].checked == true){
+					box[i].checked = false;
+				}else{
+					box[i].checked = true;
+				}
+				
+			}
+		}
+	</script> 
+</body>
+</html>

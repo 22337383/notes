@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>push方法</title>
+</head>
+<body>
+	<form>
+	<span>爱好：</span>
+	<input type="checkbox" name="check" value="">篮球
+	<input type="checkbox" name="check" value="">足球
+	<input type="checkbox" name="check" value="">跑步
+	<input type="checkbox" name="check" value="">音乐
+	<button id="choose" type="button">显示</button>
+	</form>
+	<script type="text/javascript">
+	
+	var choose=document.getElementById("choose");
+	//点击button触发一个函数
+	choose.onclick=function(){
+		var arr_input=new Array();
+		// 获得所有input
+		var love=document.getElementsByName("check");
+		// 遍历input
+	for (var i = 0; i < love.length; i++) {
+		// input如果被选中
+		if(love[i].checked){
+			// 把input的存入数组
+			arr_input.push(love[i]);
+		}
+	}
+	alert("选中的个数"+arr_input.length);
+}
+	</script>
+</body>
+</html>

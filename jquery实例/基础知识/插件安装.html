@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<div><p>duanluo</p></div>
+	<script type="text/javascript">
+	// jquery全局对象 扩展一个方法
+		/*$.log = function(){
+			console.log(new Date)
+		}
+		$.log()*/
+	// jquery普通对象扩展方法
+		$.fn.log = function(){
+			console.log($(this).html())
+		}
+		$(function () {
+			$("div").log()
+		})
+	</script>
+</body>
+</html>

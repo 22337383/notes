@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历节点</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<p>这是段落</p>
+
+<ul>
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+</ul>
+
+<h1>这是一个标题</h1>
+	<script type="text/javascript">
+	//遍历ul下面的li
+	// var $aa=$("ul").children();
+	// for (var i = 0; i < $aa.length; i++) {
+	// 	alert($aa[i].innerHTML);
+	// }
+
+	// var $bb=$("p").next().children();
+	// for (var i = 0; i < $bb.length; i++) {
+	// 	alert($bb[i].innerHTML);
+	// }
+
+	// var $cc=$("h1").prev().children();
+	// for (var i = 0; i < $cc.length; i++) {
+	// 	alert($cc[i].innerHTML);
+	// }
+
+	var $dd=$("ul").siblings();
+	for (var i = 0; i < $dd.length; i++) {
+		alert($dd[i].innerHTML);
+	}
+	</script>
+</body>
+</html>

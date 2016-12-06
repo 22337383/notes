@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画作业</title>
+</head>
+<body>
+	<canvas id="man"></canvas>
+	<script>
+	var oA=document.getElementById('man');
+
+	oA.width=500;
+	oA.height=300;
+	oA.style.background='gray';
+
+	//创建图片对象
+	var img=new Image();
+    img.src='img/1.png';
+    var ctx=oA.getContext('2d');
+    
+    var i=0;
+    img.onload=function(){
+    	var w = img.width/8; 
+        // 小图片的高度
+        var h = img.height/8;
+
+        var timer = setInterval( function(){
+           	 ctx.clearRect(125,50,w,h);
+           	 ctx.drawImage(img,i*w,256,w,h,125,50,w,h );
+           	 i++;
+           	 if(i == 8){
+           	 	// clearTimeout(timer);
+           	 	i=0;
+           	 }
+           }, 200);  		 
+	}
+
+	</script>
+</body>
+</html>

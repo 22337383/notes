@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// prototype 让类具有形同的方法
+		function Person(name,age){//构造函数
+			this.Name = name;
+			this.Age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log("名字是"+this.Name);
+		}
+		// 实例化对象
+		var xiaoming =new Person("小明",10);
+		console.log(xiaoming.Name);
+		console.log(xiaoming.Age);
+		xiaoming.showName();
+
+		var xiaowang = new Person("小王",15);
+		console.log(xiaoming.showName() == xiaowang.showName())
+	</script>
+</body>
+</html>

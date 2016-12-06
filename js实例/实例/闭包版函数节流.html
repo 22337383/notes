@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/javascript">
+		var demo = document.getElementById("demo");
+		window.onresize = jieliu(function(){
+			demo.innerHTML = window.innerWidth || document.documentElement.clientWidth;
+		},300)
+		// 闭包函数
+		function jieliu(fn,delay){
+			var timer = null;
+			return function(){
+				clearInterval(timer);
+				timer = setTimeout(fn,delay);
+			}
+		}
+	</script>
+</body>
+</html>

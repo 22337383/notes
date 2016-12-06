@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<input type="button" name="" value="点击" id="btn">
+	<script type="text/javascript">
+		$(function(){
+			$("#btn").click(function() {
+				$.ajax({
+					url:"demo.php",
+					type:"get",
+					// dataType:"html",
+					// dataType:"text",
+					success:function(data){
+						alert(data);
+					},error:function(e){
+						console.log(e);
+					}
+
+					/*url:"demo.php",
+					type:"get",
+					dataType:"json",
+					success:function(data){
+						alert(data.username);
+					},error:function(e){
+						console.log(e);
+					}*/
+
+				});				
+			});
+		})
+	</script>
+</body>
+</html>

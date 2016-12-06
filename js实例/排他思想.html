@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.active{
+		background: green;
+	}
+	</style>
+</head>
+<body>
+	<a href="#">菜单栏</a>
+	<a href="#">菜单栏</a>
+	<a href="#">菜单栏</a>
+	<a href="#">菜单栏</a>
+<!-- <button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button>
+<button>导航按钮</button> -->
+	<script type="text/javascript">
+		var links = document.getElementsByTagName("a");
+		for (var i = 0; i < links.length; i++) {
+			links[i].onclick = function (){
+			// 排他思想，排除其他
+			for (var i = 0; i < links.length; i++) {				
+				links[i].className = "";
+			}
+			// 留下自己			
+				this.className = "active";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css伪类选择器</title>
+	<style>
+	/*li的父亲ul的第二个孩子*/
+     /*li:nth-child(2) {
+       background: green;
+     }*/
+
+     /*li的父亲ul的奇数个孩子*/
+     /*li:nth-child(odd){
+     	background: green;
+     }*/
+
+     /*li的父亲ul的偶数个孩子*/
+     /*li:nth-child(even){
+     	background: green;
+     }*/
+
+     /*li的父亲ul的2的倍数的孩子*/
+     /*li:nth-child(2n){
+     	background: green;
+     }*/
+
+     /*li的父亲ul的第一个孩子*/
+     /*li:first-child{
+     	background: green;
+     }*/
+
+     /*li的父亲ul的最后一个孩子*/
+     /*li:last-child{
+     	background: green;
+     }*/
+
+     /*p的父亲ul的第一个p孩子*/
+     /*p:first-of-type{
+     	background: green;
+     }*/
+
+     /*p的父亲ul的最后一个p孩子*/
+     /*p:last-of-type{
+     	background: green;
+     }*/
+     
+     /*用户选中li时背景变成黄色*/
+     /*li::selection{
+     	background: yellow;
+     }*/
+
+    /*E:target 表示当前的URL片段的元素类型，这个元素必须是E锚点
+	E:disabled 表示不可点击的表单控件
+	E:enabled 表示可点击的表单控件
+	E:checked 表示已选中的checkbox或radio
+	E::placeholder  -webkit-input-placeholder
+	E:first-line 表示E元素中的第一行
+	E:first-letter 表示E元素中的第一个字符
+	E::selection表示E元素在用户选中文字时
+	E::before 生成内容在E元素前 (伪元素)
+	E::after 生成内容在E元素后 (伪元素)*/
+	</style>
+</head>
+<body>
+<ul>
+		<li>列表1</li>
+		<p>段落1</p>
+		<li>列表2</li>
+		<li>列表3</li>
+		<li>列表4</li>
+		<li>列表5</li>
+		<li>列表6</li>
+		<li>列表7</li>
+		<p>段落8</p>
+		<li>列表8</li>
+	</ul>	
+</body>
+</html>

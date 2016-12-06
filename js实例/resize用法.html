@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="" id="auto">
+</head>
+<body>
+	<script type="text/javascript">
+		function client(){
+			if (window.innerWidth != null) {
+				return {
+					width:window.innerWidth,
+					height:window.innerHeight
+				}
+			}else if (document.compatMode == "CSS1Compat") {
+				return {
+					width:document.documentElement.clientWidth,
+					height:document.documentElement.clientHeight
+				}
+			}else {
+				return {
+					width:document.body.clientWidth,
+					height:document.body.clientHeight
+				}
+			}		
+		}
+
+		/*window.onresize = function(){
+			// 错误：document.body操作body节点
+			if (client().width > 960) {
+				document.body.style.backgroundColor = "red";
+			}else if (client().width > 680) {
+				document.body.style.backgroundColor = "green";
+			}else{
+				document.body.style.backgroundColor = "yellow";
+			}
+		}*/
+		window.onresize = reSize;
+		reSize();
+		function reSize(){
+			if (client().width > 960){
+				document.body.style.backgroundColor = "red";
+			}else if (client().width > 680) {
+				document.body.style.backgroundColor = "green";
+			}else{
+				document.body.style.backgroundColor = "yellow";
+			}
+		}
+
+		 /*响应式切换css
+		window.onresize = reSize;
+		reSize();
+		function reSize(){
+			var auto = document.getElementById("auto");
+			if (client().width > 960){
+				auto.href = "pc.css";
+			}else if (client().width > 680) {
+				auto.href = "pad.css";
+			}else{
+				auto.href = "mobile.css";
+			}
+		}*/
+	</script>
+</body>
+</html>

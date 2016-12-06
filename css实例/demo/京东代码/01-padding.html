@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>padding</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+ 		.test{
+ 			width: 200px;
+ 			height: 200px;
+ 			border: 1px solid red;
+ 			/*1.设置padding会把盒子撑大
+ 			  2. 增加内容和边框之间的间隙
+ 			*/
+ 			/*padding: 50px;*/
+ 			padding-top: 50px;
+ 			padding-left: 10px;
+ 			
+ 		    margin: 20px;
+ 			/* margin + border + padding + width*/
+ 			/*0 + 1 + 0 + 200 + 0 + 1 + 0 = 202px*/
+ 		}
+	</style>
+</head>
+<body>
+	<div class="test">
+		这是一个div1
+	</div>
+
+	<div class="test">
+		这是一个div2
+	</div>
+</body>
+</html>

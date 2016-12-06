@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 500px;
+			position: relative;
+			border: 1px solid #eee;
+			overflow: hidden;
+
+		}
+		.content{
+			/* 不能直接设置宽度，应为要设置padding值 */
+			height: auto;
+			padding-right: 20px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.silder{
+			width: 20px;
+			height: 100%;
+			background: #eee;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		.bar{
+			width: 20px;
+			/* height: 35px; */
+			background: yellowgreen;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="content">
+			模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条模拟垂直导航条
+		</div>
+		<div class="silder">
+			<div class="bar">
+				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var content = box.children[0];
+		var silder = box.children[1];
+		var bar = silder.children[0];
+		// 计算出滚动条的高度
+		var barHeight = box.offsetHeight / content.offsetHeight * silder.offsetHeight;
+		bar.style.height = barHeight + "px";
+		// 让bar可以拖动
+		barScroll(bar,content,box,silder);
+		function barScroll(bar,content,box,silder){
+			bar.onmousedown = function(event){
+				var top = event.clientY - bar.offsetTop;
+				document.onmousemove = function(event){
+					var event = event || window.event;
+					var barTop = event.clientY - top;// bar移动距离
+					var contentTop = (content.offsetHeight - box.offsetHeight)/(silder.offsetHeight - bar.offsetHeight)*barTop;
+					// 条件判断
+					if (barTop <= 0) {
+						barTop = 0;
+					}else if (barTop >= silder.offsetHeight - bar.offsetHeight) {
+						barTop = silder.offsetHeight - bar.offsetHeight;
+					}else {
+						content.style.top = -contentTop +"px";
+					}				
+					bar.style.top = barTop + "px";
+					// 防止拖动选中文字
+					window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+			// 内容移动距离 = （内容盒子-大盒子）/（silder盒子-bar盒子）*bar移动距离
+		}
+	</script>
+</body>
+</html>

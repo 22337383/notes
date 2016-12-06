@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="txt" type="text" name="">
+	<input  id="del" type="text" name="">
+	<script type="text/javascript">
+		window.onload = function(){
+			//自动获得焦点
+			var txt = document.getElementById("txt");
+			txt.focus();
+			// 鼠标经过全选删除
+			var del = document.getElementById("del");
+			del.onmouseover = function(){
+				this.select();
+			}
+		}
+	</script>
+</body>
+</html>

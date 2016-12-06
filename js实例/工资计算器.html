@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	工龄：<input type="text" id="age" name="">
+	工资：<input type="text" id="money" name="">
+	涨后工资：<input type="text" id="agemoney" name="">
+	<input type="button" id="btn" name="" value="计算">
+	<script type="text/javascript">
+	// 思路：点击计算执行函数，函数首先获得输入的值，然后转成数值型，然后if判断；把结果返回给agemoney
+		function $(id){
+			return document.getElementById(id);
+		}
+
+		$("btn").onclick = function(){
+			var a = Number($("age").value);
+			var b = Number($("money").value);
+			if($("age").value>=5){			
+				$("agemoney").value = b+0.2*b;
+			}else if ($("age").value>=2 && $("age")<=4) {
+				$("agemoney").value = b+0.15*b;
+			}else{
+				$("agemoney").value = b+0.1*b;
+			}
+			
+		}
+	</script>
+	
+</body>
+</html>

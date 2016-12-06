@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- x1 = x / y * y1;
+	y1 = y / x * x1; -->
+	<canvas id="canvas"> </canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		canvas.width = 600;
+		canvas.height = 600;
+		canvas.style.border = "1px solid green";
+		// 绘制序列帧动画
+		var img = new Image();
+		img.src = 'imgs/gameImgs/DMMban.png';
+		var frameIndex = 0;
+
+		
+		img.onload = function(){
+			// 根据原始图片比例计算出拉伸图片宽高
+			var ow = img.width,oh = img.height;
+			var nw = 200,nh = ow / oh * nw;
+
+			setInterval(function(){
+				ctx.clearRect(0, 0, canvas.width, canvas.height);//清空画布内容
+				// 图片   裁剪坐标点x y   裁剪大小x y  图片显示位置x y   图片显示区大小x y
+				ctx.drawImage(img, 40 * frameIndex, 0, 40, 65, 300, 300, nw, nh);
+
+				frameIndex ++;
+				frameIndex %= 4;//序列帧取余
+			},1000 / 5)		
+		}
+	</script>
+</body>
+</html>

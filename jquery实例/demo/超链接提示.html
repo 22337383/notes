@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>超链接提示</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	body{
+	margin:0;
+	padding:40px;
+	background:#fff;
+	font:80% Arial, Helvetica, sans-serif;
+	color:#555;
+	line-height:180%;
+}
+p{
+	clear:both;
+	margin:0;
+	padding:.50em 0;
+}
+/* tooltip */
+#demo{
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:1px;
+	color:#333;
+	display:none;
+}
+	</style>
+</head>
+<body>
+<p><a href="#" class="demo" title="自定义title">自定义title</a></p>
+<a href="#" title="默认title">默认title</a>
+	<script type="text/javascript">
+	$("a.demo").mouseover(function(e){
+		// var $aa=$("a.demo").attr("title","自定义title");
+		var x=50;
+		var y=20;
+		this.myTitle = this.title;
+		this.title = "";
+		var $aa="<div id='demo'>"+this.myTitle+"<\/div>";
+		$("body").append($aa);
+		// $("#demo").css({position:"absolute",top:"15px",left:"10px"}).show("fast");
+		
+		$("#demo").css({"left":(e.pageX+x)+"px","top":(e.pageY+y)+"px"}).show("fast");
+		
+	});
+
+	$(".demo").mouseout(function(){
+		this.title = this.myTitle;
+		$("#demo").remove();
+	});
+	</script>
+</body>
+</html>

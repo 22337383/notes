@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<a href="baidu.com">baidu</a>
+
+	<script type="text/javascript">
+		$(function(){
+			$("a").on("click",function(e){
+				// 阻止默认行为
+				e.preventDefault();
+				// 阻止冒泡
+				e.stopPropagation();
+			})
+
+			// 鼠标左中右按键
+			$(window).on("click",function(event){
+				console.log(event.which);
+			})
+			// 获取键盘按键
+			$(window).on("keydown",function(event){
+				console.log(event.keyCode);
+			})
+		})
+	</script>
+</body>
+</html>

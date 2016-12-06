@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#mask{
+			display: block;
+			position: absolute;
+			width: 100px;
+			/* height: 100px; */
+			background: #eee;
+			left: 0;
+			top: 0;
+			/* display: none; */
+
+		}
+		#box{
+			width: 500px;
+			height: 150px;
+			border: 1px solid green;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+<span id="mask"></span>
+	<div id="box">前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册前端技术手册</div>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+
+		var event = event || window.event;
+		$("box").onmouseup = function(event){
+			var x = event.clientX;
+			var y = event.clientY;
+			// 选中文字，判断是否为空，插入文字
+			
+			var txt;
+			if (window.getSelection) {
+				txt = window.getSelection().toString();
+			}else {
+				txt = document.selection.createRange().text;
+			}
+			
+			if (txt) {
+				show(x,y,txt);
+			}
+		}
+
+		// 点击空白消失 重点：用onclick或onmousedown都可以，如果没有延时定时器，必须用onmousedown
+		document.onclick = function(event){
+			// 兼容写法,返回事件的目标节点
+			var targetId = event.target ? event.target.id : event.srcElement.id;
+			if (targetId != "mask") {
+				$("mask").style.display = "none";
+			}
+		}
+		function show(mouseX,mouseY,maskTxt){
+			// 延时定时器
+			setTimeout(function(){
+			$("mask").style.display = "block";
+			$("mask").style.left = mouseX + "px";
+			$("mask").style.top = mouseY + "px";
+			$("mask").innerHTML = maskTxt;
+			},500)		
+		}
+		
+
+	</script>
+</body>
+</html>

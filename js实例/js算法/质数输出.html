@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 函数调用返回值
+	for (var i = 1; i <= 100; i++) {
+		if(zhishu(i) == true){
+			console.log(i);
+		}
+	}
+
+		function zhishu(num){
+			var yinshu = 0;
+			//小于等于num
+			for (var i = 1; i <= num; i++) {
+				if(num % i == 0){
+					yinshu++;
+				}
+			}
+			if(yinshu == 2){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

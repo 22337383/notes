@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本选择器</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div,span,p{
+		width: 250px;
+		height: 250px;
+		margin:10px;
+		border: 1px solid green;
+		float: left;
+		text-align: left;
+		background: gray;
+		word-wrap: break-word;
+		color: white;
+	}
+	div.hidden{
+		display: none;
+	}
+	div.mini{
+		width: 100px;
+		height: 100px;
+		border: 1px solid red;
+	}
+	</style>
+</head>
+<body>
+	<div id="one" class="one">
+	class=one;id=one
+	<div class="mini">class=mini</div>
+	</div>
+
+	<div id="two" class="one" title="test">
+	id=two;class=one;title=test
+	<div class="mini" title="test">class=mini;title=test</div>
+	<div class="mini" title="other">class=mini;title=other</div>
+	</div>
+
+	<div class="one">
+	class=one
+	<div class="mini">class=mini</div>
+	<div class="mini">class=mini</div>
+	<div class="mini">class=mini</div>
+	<div class="mini" title="test">class=mini;title=test</div>
+	</div>
+
+	<div class="one">
+	class=one
+	<div class="mini">class=mini</div>
+	<div class="mini">class=mini</div>
+	<div class="mini">class=mini</div>
+	<div class="mini"></div>
+	</div>
+
+	<div style="display:none">style:display:none</div>
+
+	<div class="hidden">class=hidden</div>
+
+	<div>
+	<input type="hidden" name="hidden">
+	div包含input，type为hidden
+	</div>
+	<span id="mover">span动画</span>
+
+	<script type="text/javascript">
+
+	// $("*").css("background","green");
+	// $(".one,span").css("background","green");
+	// $("div").css("background","green");
+	</script>
+</body>
+</html>

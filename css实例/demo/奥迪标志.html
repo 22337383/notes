@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>奥迪标志</title>
+</head>
+<body>
+	<canvas id="cav""></canvas>
+
+	<script>
+       // 获得标签对象
+       var oA=document.getElementById('cav');
+       oA.width=500;
+       oA.height=500;
+       oA.style.background="gray";
+       // 获取画布环境
+       var ctx = oA.getContext("2d");
+       ctx.strokeStyle="green";
+       ctx.lineWidth=10;
+
+       // 开始新的路径
+       ctx.beginPath();
+       ctx.arc(100,100,50,0,2*Math.PI,true);
+       ctx.closePath();
+       ctx.stroke(); 
+        
+       ctx.beginPath();
+       ctx.arc(170,100,50,0,2*Math.PI,true);
+       ctx.closePath();
+       ctx.stroke();
+       
+       ctx.beginPath();
+       ctx.arc(240,100,50,0,2*Math.PI,true);
+       ctx.closePath();
+       ctx.stroke();
+
+
+       ctx.beginPath();
+       ctx.arc(310,100,50,0,2*Math.PI,true);
+       ctx.closePath();
+       ctx.stroke();
+       </script>
+</body>
+</html>

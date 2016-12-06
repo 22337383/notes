@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .left,.right{
+            position: absolute;
+            top:80px;
+        }
+        .left{
+            left: 0;
+        }
+        .right{
+            right: 0;
+        }
+        .content{
+            width: 100%;
+            height: 2000px;
+            background: teal;
+
+        }
+    </style>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        // 思路：文档只要滚动，就让图片以动画的形式定位到原来的位置
+        $(function(){
+            $(window).scroll(function(){
+                var h = $(document).scrollTop();
+                $(".left,.right").stop().animate({"top":h + 80},600)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="left"><img src="images/1.gif" alt=""/></div>
+    <div class="right"><img src="images/2.gif" alt=""/></div>
+    <div class="content">内容</div>
+</body>
+</html>

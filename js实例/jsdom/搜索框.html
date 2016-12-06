@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#txt{
+			color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" name="" id="txt" value="请输入...">
+	<input type="button" name="" id="btn" value="搜索">
+
+	<script type="text/javascript">
+		var txt = document.getElementById("txt");
+		var btn = document.getElementById("btn");
+		txt.onfocus = function(){
+			if(txt.value == "请输入..."){
+				txt.value = "";
+				txt.style.color="black";
+			}
+		}
+		txt.onblur = function(){
+			if(txt.value == ""){
+				txt.value = "请输入...";
+				txt.style.color="#ccc";
+			}
+		}
+	</script>
+</body>
+</html>

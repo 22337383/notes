@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #target {
+        width: 500px;
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        border: 3px dashed #ccc;
+    }
+    
+    #target.active {
+        background: #eee;
+        box-shadow: 2px 2px 2px #eee;
+    }
+    /* 总结：块级元素会继承其父亲的宽高 */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="toy.png">
+            <p>选择文字拖到目标位子</p>
+        </div>
+        <div id="target">
+            <span>拖动文字到这里</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    (function() {
+        var target = document.querySelector('#target');
+        target.addEventListener('dragenter', function() {
+            this.classList.add('active');
+        })
+        target.addEventListener('dragleave', function() {
+                this.classList.remove('active');
+            })
+            //阻止冒泡和默认行为
+        target.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        })
+
+        //目标框得到drop事件
+        target.addEventListener('drop', function(e) {
+            var data = e.dataTransfer.getData('text/plain');
+            var imgSrc = e.dataTransfer.getData('text/uri-list');
+            if (data) {
+                // 拖入的是文本
+                target.innerHTML = data;
+            } else if(imgSrc){
+                var img = document.createElement('img');
+                img.src = imgSrc;
+                target.appendChild(img);
+            }
+            this.classList.remove('active');
+            e.preventDefault();
+            e.stopPropagation();
+        })
+    })()
+    </script>
+</body>
+
+</html>

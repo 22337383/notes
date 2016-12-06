@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+		.hidden{
+			display: none;
+		}
+    	.btn{
+    		width: 100px;
+    		height: 30px;
+    		line-height: 25px;
+    		background: teal;
+    		color: #fff;
+    		border: none;
+    	}
+    </style>
+</head>
+
+<body>
+    <form>
+    	<!-- 控制台document.forms[0].select_file.files -->
+        <input type="file" class="hidden" name="file" id="select_file" value="选择文件" multiple="multiple">
+        <input type="button" class="btn" name="" id="select_btn" value="读取信息">
+    </form>
+    <ul id="info">
+    </ul>
+    <script type="text/javascript">
+    	var sFiles = document.querySelector('#select_file');
+    	var sBtn = document.querySelector('#select_btn');
+    	var info = document.querySelector('#info')
+    	
+    	/*sBtn.addEventListener('click', function(){
+    		var files = sFiles.files;
+    		console.log(files)//数组	
+    		for (var i = 0; i < files.length; i++) {
+    			var infoLi = document.createElement('li');
+    			infoLi.innerHTML = files[i].name;
+    			info.appendChild(infoLi)
+    		}		
+    	})*/
+    	sBtn.addEventListener('click', function(){
+    		sFiles.click()
+    	})
+    	sFiles.addEventListener('change', function(){
+    		var files = sFiles.files;
+    		console.log(files)//数组	
+    		for (var i = 0; i < files.length; i++) {
+    			var infoLi = document.createElement('li');
+    			infoLi.innerHTML = '文件名：'+files[i].name+'文件大小：'+(files[i].size / 1024).toFixed(2)+'kb';
+    			info.appendChild(infoLi)
+    		}
+    	})
+    </script>
+</body>
+
+</html>

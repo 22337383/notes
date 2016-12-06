@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom转换</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	
+</head>
+<body>
+<button id="bbb">haha</button>
+<button>gaga</button>
+	<script type="text/javascript">
+	$("button").click(function(){
+		var $btn=$("button");
+		alert($btn[1].firstChild.nodeValue);
+	})
+
+	var bbb=document.getElementById("bbb");
+	alert($(bbb).text());
+	</script>
+</body>
+</html>

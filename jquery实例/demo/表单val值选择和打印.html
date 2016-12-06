@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单过滤选择器</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	
+</head>
+<body>
+<!-- <select multiple="multiple">
+	<option>上海</option>
+	<option selected>北京</option>
+	<option>杭州</option>
+	<option selected>广州</option>
+	<option selected>广州</option>
+	<option selected>广州</option>
+</select>
+<script type="text/javascript">
+	$("select :selected").each(function(){
+		alert($(this).val())
+	})
+</script> -->
+
+<input type="button" name="" value="选择北京和杭州">
+<input type="button" name="" value="选择1">
+<input type="button" name="" value="选择小王和小明">
+<input type="button" name="" value="打印选中的值">
+
+<select id="multiple" multiple="multiple">
+	<option>上海</option>
+	<option>杭州</option>
+	<option>北京</option>
+</select>
+
+<input type="radio" name="love" value="1">1
+<input type="radio" name="love" value="2">2
+<input type="radio" name="love" value="3">3
+
+<input type="checkbox" name="name" value="小李">小李
+<input type="checkbox" name="name" value="小王">小王
+<input type="checkbox" name="name" value="小明">小明
+<script type="text/javascript">
+	$(":button:eq(0)").click(function(){
+		$("#multiple").val(["杭州","北京"]);
+	});
+	//单选按钮即使一个值也要当做数组处理
+	$(":button:eq(1)").click(function(){
+		$(":radio[name='love']").val(["1"]);
+	});
+
+	$(":button:eq(2)").click(function(){
+		$(":checkbox[name='name']").val(["小王","小明"]);
+	});
+
+	$(":button:eq(3)").click(function(){
+		//可以选取select的所有值
+		alert($("#multiple").val());
+		//只能获取被选中的第一个值
+		alert($(":radio[name='love']:checked").val());
+		alert($(":checkbox[name='name']:checked").val());
+
+		// 遍历checkbox
+		$(":checkbox[name='name']:checked").each(function(){
+			alert(this.value);
+		});
+		
+	});
+</script>
+</body>
+</html>

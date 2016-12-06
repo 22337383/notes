@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas"> </canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		canvas.width = 600;
+		canvas.height = 600;
+		canvas.style.border = "1px solid green";
+		/*//描边
+		ctx.strokeStyle = "green";
+		//填充
+		ctx.fillStyle = "black";
+		线宽
+		ctx.lineWidth = 1;
+		//绘图
+		ctx.beginPath();
+		ctx.moveTo(200,200);
+		ctx.lineTo(200,400);
+		ctx.lineTo(300,400);
+		ctx.closePath();
+		//完成
+		ctx.stroke();
+		ctx.fill();*/
+
+		var tableX = canvas.width;
+		var tableY = canvas.height;
+		var step = 10;
+		ctx.strokeStyle = "green";
+		ctx.lineWidth = 1;
+		for (var i = 0; i < canvas.width / step; i++) {
+			//横线
+			ctx.moveTo(0,i * step);
+			ctx.lineTo(tableX,i*step);
+			// 竖线
+			ctx.moveTo(i * step,0);
+			ctx.lineTo(i*step,tableY);
+		}
+		ctx.stroke();
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.top{
+			height: 40px;
+			border-bottom: 1px solid #ccc;
+		}
+		.box{
+			width: 400px;
+			height: 340px;
+			border: 1px solid #ccc;
+			margin: 100px auto;
+		}
+		.divs div{
+			/* background: #f3f3f3; */
+			display: none;
+		}
+		.active{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="top">
+			<button>tab切换</button>
+			<button>tab切换</button>
+			<button>tab切换</button>
+			<button>tab切换</button>
+			<button>tab切换</button>
+		</div>
+
+		<div class="divs" id="divs">
+			<div style="display: block;">这是1段落</div>
+			<div>这是2段落</div>
+			<div>这是3段落</div>
+			<div>这是4段落</div>
+			<div>这是5段落</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var btns = document.getElementsByTagName("button");
+		var divs = document.getElementById("divs").getElementsByTagName("div");
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].xuhao = i;//获取序列号
+			btns[i].onclick = function(){
+				//干他思想开始
+				for (var i = 0; i < btns.length; i++) {
+					btns[i].className = "";
+					divs[i].style.display = "none";
+				}
+				this.className = "active";
+				divs[this.xuhao].style.display = "block";
+			}
+		}
+		
+	</script>
+</body>
+</html>

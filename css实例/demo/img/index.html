@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幻灯片播放</title>
+</head>
+<body>
+	<img id="img1" src="1.jpg" alt=""><br>
+	<input type="button" name="next" value="下一张" onclick="next()">
+	<input type="button" name="pre" value="上一张" onclick="pre()">
+
+	<script>
+	// 下标从0开始计算，但是数组元素个数不是，以下下标为0，1，2，3，4，length为5
+		//定义一个数组
+		var picArr=new Array("1.jpg","2.jpg","3.jpg","4.jpg","5.jpg");
+		//下标值变量
+		var i=0;
+
+		//下一张
+		function next(){
+			i++;			
+			if(i==picArr.length){
+				i=0;
+			}else{
+			document.getElementById("img1").src=picArr[i];
+		}
+		}
+
+		//上一张,
+		function pre(){
+			i--;			
+			if(i<0){
+				i=picArr.length;
+			}else{
+			document.getElementById("img1").src=picArr[i];
+		}
+		}
+
+		 // alert(picArr.length);
+	</script>
+</body>
+</html>

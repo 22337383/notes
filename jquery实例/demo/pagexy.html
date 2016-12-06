@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pagexpagey</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+		#content{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+<div id="content">这是一个段落</div>
+	<script type="text/javascript">
+	$(function(){
+		$("body").mousemove(function(event){
+			$("#content").text("X=:" +event.pageX+ "Y=:" +event.pageY)
+		})
+	})	
+	</script>
+</body>
+</html>

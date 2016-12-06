@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			text-align: center;
+		}
+		nav{
+			display: inline-block;
+			height: 40px;
+			margin: 100px auto;
+		}
+		nav a{
+			display: inline-block;
+			text-decoration: none;
+			color: white;
+			/* float: left; */
+			perspective: 700px;
+			/* perspective-origin: 150% 50%; */
+		}
+		nav a span{
+			display: inline-block;
+			height: 40px;
+			padding:5px 20px;
+			line-height: 40px;
+			background: teal;
+			position: relative;
+			transform-style: preserve-3d;
+			transform-origin: top;
+			transition: all 1s;
+		}
+		nav a span:after{
+			content: attr(data-hover);
+			position: absolute;
+			top: 100%;
+			left: 0;
+			height:40px;
+			line-height: 40px;
+			padding: 5px 20px;
+			background: blue;
+
+			transform-origin: top;
+			transform: rotateX(-90deg);
+
+		}
+		nav a:hover span{
+			transform: rotateX(90deg);
+		}
+	</style>
+</head>
+<body>
+	<nav>
+    <a href="#">
+        <span data-hover="前端手册">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="面向对象">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="前端手册">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="面向对象">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="前端手册">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="面向对象">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="前端手册">前端手册</span>
+    </a>
+    <a href="#">
+        <span data-hover="面向对象">前端手册</span>
+    </a>
+</nav>
+</body>
+</html>

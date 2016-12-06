@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		div{
+			position: absolute;
+			top: 100px;
+			left: 50px;
+			width: 200px;
+			height: 200px;
+			background: green;
+		}
+		p{
+			position: absolute;
+			top: 50px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<p>段落</p>
+</div>
+<table></table>
+	<button>position</button>
+	<button>offset</button>
+	<button>设置offset</button>
+	<script type="text/javascript">
+		$(function(){
+			$("button").eq(0).click(function(){
+				console.log($("p").position())
+				console.log($("p").position().top)
+				console.log($("p").position().left)
+			});
+
+			
+			$("button").eq(1).click(function(){
+				console.log($("div").offset())
+				console.log($("div").offset().top)
+				console.log($("div").offset().left)
+			});
+
+			$("button").eq(2).click(function(){
+				$("div").offset({
+					top:200,
+					left:400
+				})
+			})
+
+		})
+	</script>
+</body>
+</html>

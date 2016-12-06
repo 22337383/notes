@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#demo{
+			position: absolute;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">left</button>
+	<button id="btn2">right</button>
+	<div id="demo"></div>
+
+	<script type="text/javascript">
+	function $(id){
+		return document.getElementById(id);
+	}
+		function move(speed){
+			return function(){
+				$("demo").style.left =$("demo").offsetLeft + speed + "px";
+
+			}
+		}
+		$("btn1").onclick = move(5);
+		$("btn2").onclick = move(-5);
+	</script>
+</body>
+</html>

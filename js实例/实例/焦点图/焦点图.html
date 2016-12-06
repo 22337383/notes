@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul,ol{
+			list-style: none;
+		}
+		img{
+			vertical-align: top;
+		}
+		.silder{
+			width: 490px;
+			height: 170px;
+			padding: 5px;
+			border: 1px solid #ccc;
+			margin: 100px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		.inner{
+			width: 490px;
+			height: 170px;
+			overflow: hidden;
+			position: relative;
+		}
+		.inner ul{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 1000%;
+			height: 170px;
+		}
+		.inner ul li{
+			float: left;
+		}
+		.box ol{
+			position: absolute;
+			top: 130px;
+			right: 20px;
+		}
+		.box ol li{
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			line-height: 20px;
+			background: #fff;
+			margin-right: 10px;
+			float: left;
+		}
+		.box ol li.active{
+			background: orange;	
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="silder" id="silder">
+		<div class="inner">
+			<ul>
+				<li><a href="javascript:;"><img src="images/01.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="images/02.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="images/03.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="images/04.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="images/05.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div class="box">
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var silder = document.getElementById("silder");
+		var ul = silder.children[0].children[0];
+		var ol = silder.children[1].children[0];
+		var olli = ol.children;
+		// 鼠标经过改变className
+		for (var i = 0; i < olli.length; i++) {
+			olli[i].index = i;// 重点： 获取当前li的索引号
+			olli[i].onmouseover = function(){
+				for (var j = 0; j < olli.length; j++) {
+					olli[j].className = "";
+				}
+			this.className = "active";
+			target = -490*this.index;
+			}
+			
+		}
+		// 缓动动画
+		var leader = 0, target = 0;
+		setInterval(function(){
+		leader = leader + (target - leader)/10;
+		ul.style.left = leader +"px";
+	},30)
+		
+	</script>
+</body>
+</html>

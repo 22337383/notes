@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+</head>
+<style>
+    body {
+    	font-family: "Microsoft YaHei";
+    }
+    p{
+    	background: #f3f3f3;
+    	padding-left: 10px;
+    	height:30px;
+    	line-height: 30px;
+    	border-top:1px solid gray;
+    	margin-top:-1px;
+    }
+	.conter {
+		width: 80%;
+		border: 1px solid gray;
+		margin-left: 10%;
+	}
+	.conter ul {
+
+	}
+	.conter ul li{
+		list-style: none;
+		background: #f3f3f3;
+	}
+	span {
+		color: red;
+	}
+	button {
+		width: 250px;
+		height: 40px;
+		line-height: 40px;
+		color: #fff;
+		border:none;
+		background: #D40303;
+		font-size: 16px;
+		margin: 30px 10%;
+	}
+	.one{
+        margin-right:500px;
+        line-height: 50px;
+        text-align: right;
+
+	}
+	.two {
+		margin-left:240px;
+	}
+	.one input,select{
+		height:22px;
+		line-height: 22px;
+		width: 200px;
+	}
+
+	.user {
+		background: url(user.jpg) no-repeat 180px center;
+		border:1px solid #A9A9A9;
+		margin:5px;
+	}
+	.psw {
+		background: url(psw.jpg) no-repeat 180px center;
+		border:1px solid #A9A9A9;
+		margin:5px;
+	}
+</style>
+<body>
+	<div class="conter">
+	        <form action="2.htm" method="post">
+			<p>账户信息</p>
+			<div class="one">
+			<span>*</span>   用户名：<input type="text" class="user"/><br>
+			<span>*</span> 设置密码：<input type="password" class="psw"/><br>
+			<span>*</span> 确认密码：<input type="password" class="psw"/>
+			</div>
+
+			<p>联系人信息</p>
+			<div class="one">
+			<span>*</span> 联系人姓名：<input type="text"><br>
+			<span>*</span> 所在部门： <select name="" id="">
+				<option value="开发部">开发部</option>
+				<option value="销售部">销售部</option>
+				<option value="技术部">技术部</option>				
+			</select><br>
+			<span>*</span>  联系电话：<input type="text">
+			</div>
+
+			<p>公司信息</p>
+			<div class="one">
+			<span>*</span>公司名称：<input type="text"><br>
+			</div>
+			<div class="two">
+			<span>*</span>购买类型/用途：<input type="checkbox" value="IT设备">IT设备
+			<input type="checkbox" value="数码通讯">数码通讯
+			<input type="checkbox" value="办公用品">办公用品
+			<input type="checkbox" value="大家电">大家电<br>
+			<button type="button"><a href=""></a>立即注册</button>
+			</div>
+			</form>
+			
+
+	</div>
+</body>
+</html>

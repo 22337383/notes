@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div id="box"></div>
+	<p>这是段落</p>
+	<div></div>
+	<script type="text/javascript">
+		// 思路：#box .box div这三种选择器，首先获得第一个字符，然后截取第一个字符后面的字符,最后判断
+		function $(str){
+			var a = str.charAt(0);// # . d
+			var b = str.substr(1);// box box iv
+			//曾经错误：忘记写return
+			switch (a) {
+				case "#":
+					return document.getElementById(b);
+					break;
+				case ".":
+					return document.getElementsByClassName(b);
+					break;
+				default:
+					return document.getElementsByTagName(str);
+					break;
+			}
+		}
+		$("#box").style.backgroundColor = "green";
+		
+		$(".box")[0].style.backgroundColor = "yellow";
+
+		$("p")[0].style.backgroundColor = "gray";
+		/*var test = $(".box");
+	    for(var i=0;i<test.length;i++)
+	    {
+	        test[i].style.backgroundColor = "blue";
+	    }*/
+	    /*var test = $("p");
+	    for(var i=0;i<test.length;i++)
+	    {
+	        test[i].style.backgroundColor = "blue";
+	    }*/
+	</script>
+</body>
+</html>

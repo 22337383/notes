@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="sprite.js"></script>
+</head>
+<body>
+	<button id="btn-dir-left">←</button>
+	<button id="btn-dir-right">→</button>
+	<button id="btn-dir-up">↑</button>
+	<button id="btn-dir-down">↓</button>
+
+
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+	(function(){
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		canvas.width = 600;
+		canvas.height = 600;
+		canvas.style.border = '1px solid green';
+
+		//创建一个精灵对象
+			var s = new Sprite({
+				x: 300,
+				y: 300,
+				w: 80,
+				h: 65*2,
+				fps: 4,
+				originW: 40,
+				originH: 65,
+				imgSrc: 'imgs/gameImgs/DMMban.png'
+			}); 
+
+			//调用一个方法
+			s.render(ctx);
+
+			//绑定事件调用方法
+			var btnleft = document.getElementById('btn-dir-left');
+			btnleft.onclick = function(){
+				s.changeDir('left');
+			}
+			var btnright = document.getElementById('btn-dir-right');
+			btnright.onclick = function(){
+				s.changeDir('right');
+			}
+			var btnup = document.getElementById('btn-dir-up');
+			btnup.onclick = function(){
+				s.changeDir('up');
+			}
+			var btndown = document.getElementById('btn-dir-down');
+			btndown.onclick = function(){
+				s.changeDir('down');
+			}
+
+	}())
+	</script>
+</body>
+</html>
